@@ -14,7 +14,10 @@ type AuthContextType = {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: PropsWithChildren) => {
-  const [user, setUser] = useState<FirebaseUser | null>(null);
+  const [user, setUser] = useState<FirebaseUser | null>(() => {
+    const getUser = localStorage.getItem("user");
+    return getUser ? JSON.parse(getUser) : null;
+  });
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>

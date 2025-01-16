@@ -3,9 +3,12 @@ import Logo from "../../assets/image/logo-white.webp";
 import Login from "../Login/Login";
 import { FaRegBell } from "react-icons/fa";
 import { UseAuth } from "../../context/LoginContext/ContexLogin";
+import ModalUser from "./ModalUser/ModalUser";
+import React from "react";
 
 const Nav = () => {
   const { user } = UseAuth();
+  const [activeModal, setActiveModal] = React.useState<boolean>(false);
 
   return (
     <nav>
@@ -22,7 +25,7 @@ const Nav = () => {
           Início
         </NavLink>
         <NavLink
-          to={"/imóveis"}
+          to={"/imoveis"}
           className={({ isActive }) => (isActive ? "active" : "no-active")}
         >
           Imóveis
@@ -43,9 +46,16 @@ const Nav = () => {
           </Link>
         )}
         {user && (
-          <button className={"btn-user"}>
-            <img src={String(user?.photoURL)} alt={String(user.displayName)} />
-          </button>
+          <div className={"wrapper-modal"}>
+            <button
+              className={"btn-user"}
+              onClick={() => setActiveModal(!activeModal)}
+            >
+              {/* {user.photoURL &&  <img src={String(user?.photoURL)} />} */}
+              {String(user.displayName).charAt(0)}
+            </button>
+            {activeModal && <ModalUser />}
+          </div>
         )}
         {!user && <Login />}
       </div>

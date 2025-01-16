@@ -31,10 +31,10 @@ export const Header = styled.header<{ mobile: boolean }>`
     display: flex;
     align-items: center;
 
-    img{
-        display: block;
-        max-width: 40px;
-        margin:  0 auto;
+    img {
+      display: block;
+      max-width: 40px;
+      margin: 0 auto;
     }
   }
 
@@ -59,8 +59,6 @@ export const Header = styled.header<{ mobile: boolean }>`
         padding-block: 0.5rem;
         padding-inline: 0.75rem;
         border-radius: 0.38rem;
-        width: 100% !important;
-        display: block !important;
       }
 
       .wrapper-link {
@@ -107,12 +105,16 @@ export const Header = styled.header<{ mobile: boolean }>`
         }
       }
     }
+    .wrapper-modal {
+      position: relative;
+    }
   }
 `;
 
 export const Wrapper = styled.div<{ mobile: boolean }>`
   max-width: 1220px;
   margin: 70px auto auto auto;
+  padding-bottom: 30px;
 
   h1 {
     font-size: ${({ mobile }) => (mobile ? "40px" : "60px")};

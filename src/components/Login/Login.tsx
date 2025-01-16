@@ -14,6 +14,7 @@ const Login = () => {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       setUser(user);
+      localStorage.setItem("user", JSON.stringify(user));
       console.log("Usuário logado:", user);
       alert(`Bem-vindo, ${user.displayName}!`);
     } catch (error) {
