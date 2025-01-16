@@ -1,6 +1,8 @@
+import * as S from "./Styles";
 import { auth } from "../../../Firebase/firebaseConfig";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { UseAuth } from "../../context/ContexLogin";
+import { UseAuth } from "../../context/LoginContext/ContexLogin";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const { setUser } = UseAuth();
@@ -20,9 +22,10 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleGoogleLogin}>Entrar com Google</button>
-    </div>
+    <S.Button onClick={handleGoogleLogin}>
+      <FaGoogle />
+      Entrar ou Registrar
+    </S.Button>
   );
 };
 

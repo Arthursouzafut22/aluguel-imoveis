@@ -1,12 +1,13 @@
-import Header from "./components/Header/Header";
-import { AuthProvider } from "./context/ContexLogin";
-
+import { AuthProvider } from "./context/LoginContext/ContexLogin";
+import Router from "./routes/Routes";
+import { GlobalStyles } from "./Styles/GlobalStyles";
 
 function App() {
   return (
     <>
       <AuthProvider>
-        <Header />
+        <Router />
+        <GlobalStyles/>
       </AuthProvider>
     </>
   );
