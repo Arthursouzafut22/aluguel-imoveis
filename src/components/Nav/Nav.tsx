@@ -51,8 +51,7 @@ const Nav = () => {
               className={"btn-user"}
               onClick={() => setActiveModal(!activeModal)}
             >
-              {/* {user.photoURL &&  <img src={String(user?.photoURL)} />} */}
-              {String(user.displayName).charAt(0)}
+              {user.photoURL && <img src={String(user?.photoURL)} alt="logo" />}
             </button>
             {activeModal && <ModalUser />}
           </div>
