@@ -11,13 +11,13 @@ import { ReactNode } from "react";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
-  const routes = ["/add"];
-  const include = !routes.includes(location.pathname);
+  const routes = ["/add", "/messages", "/profile", "/favorites"];
+  const include = routes.includes(location.pathname);
 
   return (
     <>
+      <Header>{!include && <WrapperRent />}</Header>
       {children}
-      {include && <WrapperRent />}
     </>
   );
 };
@@ -26,7 +26,6 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Layout>
-        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/imoveis" element={<Imoveis />} />

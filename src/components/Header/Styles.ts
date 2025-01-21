@@ -111,10 +111,11 @@ export const Header = styled.header<{ mobile: boolean }>`
   }
 `;
 
-export const Wrapper = styled.div<{ mobile: boolean }>`
+export const Wrapper = styled.div<{ mobile: boolean; visible: boolean }>`
   max-width: 1220px;
-  margin: 70px auto auto auto;
-  padding-bottom: 30px;
+  margin: ${({ visible }) =>
+    !visible ? " 40px auto auto auto" : " 70px auto auto auto"};
+  padding-bottom: ${({ visible }) => (!visible ? "5px" : "30px")};
 
   h1 {
     font-size: ${({ mobile }) => (mobile ? "40px" : "60px")};

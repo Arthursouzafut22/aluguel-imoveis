@@ -1,9 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.tsx";
+import { QueryClient, QueryClientProvider } from "react-query";
 
-createRoot(document.getElementById('root')!).render(
+const query = new QueryClient({
+  defaultOptions: {
+    queries: { suspense: true },
+  },
+});
+
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <QueryClientProvider client={query}>
+      <App />
+    </QueryClientProvider>
+  </StrictMode>
+);

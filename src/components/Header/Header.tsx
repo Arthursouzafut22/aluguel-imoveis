@@ -1,12 +1,11 @@
 import * as S from "./Styles";
-import WrapperRent from "./WrapperRent";
 import useMedia from "../../Hooks/UseMedia";
 import Nav from "../Nav/Nav";
-import React, { useCallback } from "react";
+import React, { ReactNode, useCallback } from "react";
 import MenuMobile from "./MenuMobile/MenuMobile";
 import Img from "../../assets/image/logo-white.webp";
 
-const Header = () => {
+const Header = ({ children }: { children: ReactNode }) => {
   const { mobile } = useMedia("(max-width:767px)");
   const [menuActive, setMenuActive] = React.useState<boolean>(false);
 
@@ -25,7 +24,8 @@ const Header = () => {
 
       {!mobile && <Nav />}
       {mobile && menuActive && <Nav />}
-      <WrapperRent />
+
+      {children}
     </S.Header>
   );
 };
