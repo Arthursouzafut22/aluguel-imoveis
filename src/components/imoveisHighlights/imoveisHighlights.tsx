@@ -2,6 +2,7 @@ import * as S from "./Styles";
 import { useQueryProperty } from "../../api/propertyService";
 import CardsImoveis from "../CardsImoveis/CardsImoveis";
 import useMedia from "../../Hooks/UseMedia";
+import { Suspense } from "react";
 
 const ImoveisHighlights: React.FC = () => {
   const { data } = useQueryProperty("/destaques");
@@ -9,11 +10,15 @@ const ImoveisHighlights: React.FC = () => {
 
   return (
     <S.WrapperHighlights>
-      <h1>Imóveis em destaque</h1>
+      <h2>Imóveis em destaque</h2>
 
       <S.Box mobile={mobile}>
         {data &&
-          data?.map((item) => <CardsImoveis key={item.id} item={item} />)}
+          data?.map((item) => (
+            <Suspense fallback={<p>Carregando....</p>} key={item.id}>
+              <CardsImoveis item={item} flexdirection={"row"} />
+            </Suspense>
+          ))}
       </S.Box>
     </S.WrapperHighlights>
   );

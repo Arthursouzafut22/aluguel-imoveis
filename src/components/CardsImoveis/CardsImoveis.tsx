@@ -1,18 +1,16 @@
 import * as S from "./Styles";
-import { PropertProps } from "../../api/Types";
-import { formatePrice } from "../FormatePrice/FormatePrice";
+// import { formatePrice } from "../FormatePrice/FormatePrice";
 import { URL_BASE_IMG } from "../../api/base_Urls";
 import WrrapperAreas from "./WrrapperAreas/WrrapperAreas";
 import { time } from "./money";
 import useMedia from "../../Hooks/UseMedia";
+import { CardProps } from "./Types";
 
-const CardsImoveis = ({ item }: { item: PropertProps }) => {
+const CardsImoveis = ({ item, flexdirection }: CardProps) => {
   const { mobile } = useMedia(`(max-width:1273px)`);
- 
-
 
   return (
-    <S.CardImoveis mobile={mobile}>
+    <S.CardImoveis mobile={mobile} flexdirection={flexdirection}>
       <div className="filho-one">
         {/* <h2>{formatePrice(Number(item.mes))}/mês</h2> */}
         {item.imagens && (
@@ -29,10 +27,8 @@ const CardsImoveis = ({ item }: { item: PropertProps }) => {
           {time &&
             time.map((i) => (
               <div key={i.time} className="on">
-                <span>
-                  {i.icon}
-                </span>
-                  <p>{i.time}</p>
+                <span>{i.icon}</span>
+                <p>{i.time}</p>
               </div>
             ))}
         </S.BoxMoney>

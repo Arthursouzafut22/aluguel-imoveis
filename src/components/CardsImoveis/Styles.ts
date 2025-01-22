@@ -1,13 +1,15 @@
 import styled from "styled-components";
+import { flexBetween, flexColummStart, flexItem } from "../../Styles/flex";
 
-export const CardImoveis = styled.div<{ mobile: boolean }>`
-  border-radius: 1px solid;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 0.50rem;
-  box-shadow: 2px 5px 10px 1px rgba(204, 204, 204, 0.21);
-  border: 1px solid;
+export const CardImoveis = styled.div<{
+  mobile: boolean;
+  flexdirection: string;
+}>`
+  ${flexBetween}
+
+  flex-direction: ${({ flexdirection }) => flexdirection};
+  border-radius: 0.5rem;
+  box-shadow: 2px 5px 12px -2px rgba(204, 204, 204, 0.39);
   width: 100%;
 
   @media screen and (max-width: 767px) {
@@ -15,22 +17,21 @@ export const CardImoveis = styled.div<{ mobile: boolean }>`
   }
 
   .filho-one {
-    max-width: ${({ mobile }) => (mobile ? "initial" : "300px")};
+    max-width: ${({ mobile }) => (mobile ? "initial" : "")}; // 300px;
     width: 100%;
 
     img {
       display: block;
       max-width: 100% !important;
-      border-radius: 8px;
+      border-radius: 0.5rem;
+      width: 100%;
     }
   }
   .filho-two {
     max-width: ${({ mobile }) => (mobile ? "initial" : "300px")};
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
+    ${flexColummStart}
     width: 100%;
+    max-width: 100%;
     padding-inline: 0.94rem;
 
     @media screen and (max-width: 767px) {
@@ -43,7 +44,7 @@ export const CardImoveis = styled.div<{ mobile: boolean }>`
 export const BoxInfo = styled.div`
   p:first-child {
     font-weight: 700;
-    font-size:  1.13rem;
+    font-size: 1.13rem;
     line-height: 19px;
     margin-top: 10px;
   }
@@ -55,28 +56,25 @@ export const BoxInfo = styled.div`
 `;
 
 export const WrrapperAreas = styled.div<{ mobile: boolean }>`
-  display: flex;
-  align-items: center;
+  ${flexItem}
   flex-wrap: ${({ mobile }) => mobile && "wrap"};
-  gap: ${({ mobile }) => (mobile ? "10px" : "30px")};
+  gap: ${({ mobile }) => (mobile ? " 0.63rem" : " 1.88rem")};
 `;
 
 export const Box = styled.div<{ mobile: boolean }>`
   div {
-    display: flex;
-    align-items: center;
+    ${flexItem}
     gap: 0.25rem;
   }
 
   span {
     display: block;
-    font-size: ${({ mobile }) => mobile && "13px"} !important;
+    font-size: ${({ mobile }) => mobile && "0.81rem"} !important;
   }
 `;
 
 export const BoxMoney = styled.div`
-  display: flex;
-  align-items: center;
+  ${flexItem}
   gap: 0.94rem;
   margin-top: 8px;
 
@@ -102,8 +100,7 @@ export const BoxMoney = styled.div`
 `;
 
 export const BoxLocation = styled.div<{ mobile: boolean }>`
-  display: flex;
-  align-items: center;
+  ${flexItem};
   justify-content: space-between;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -128,9 +125,9 @@ export const BoxLocation = styled.div<{ mobile: boolean }>`
     background-color: #a795ff;
     border: none;
     display: block;
-    padding-block: 0.50rem;
+    padding-block: 0.5rem;
     padding-inline: 0.88rem;
-    border-radius: 0.50rem;
+    border-radius: 0.5rem;
     cursor: pointer;
   }
 `;

@@ -1,15 +1,14 @@
 import * as S from "./Styles";
 import ContainerCards from "./ContainerCards/ContainerCards";
 import ImoveisHighlights from "../../components/imoveisHighlights/imoveisHighlights";
-import { Suspense } from "react";
+import NewlyAdded from "../../components/NewlyAdded/NewlyAdded ";
 
 const Home = () => {
   return (
     <S.Main>
       <ContainerCards />
-      <Suspense fallback={<p>Carregando....</p>}>
-        <ImoveisHighlights />
-      </Suspense>
+      <ImoveisHighlights />
+      <NewlyAdded />
     </S.Main>
   );
 };
