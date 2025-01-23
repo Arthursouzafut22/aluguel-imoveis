@@ -25,7 +25,6 @@ const styleButton = css`
 export const Header = styled.header<{ mobile: boolean }>`
   background: ${PurpleColor};
   padding: 1.25rem;
-  border-bottom: 1px solid;
 
   .wrapper {
     display: flex;

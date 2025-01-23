@@ -1,18 +1,20 @@
 import * as S from "./Styles";
-// import { formatePrice } from "../FormatePrice/FormatePrice";
+import { formatePrice } from "../FormatePrice/FormatePrice";
 import { URL_BASE_IMG } from "../../api/base_Urls";
 import WrrapperAreas from "./WrrapperAreas/WrrapperAreas";
 import { time } from "./money";
 import useMedia from "../../Hooks/UseMedia";
 import { CardProps } from "./Types";
+import { useNavigate } from "react-router-dom";
 
 const CardsImoveis = ({ item, flexdirection }: CardProps) => {
   const { mobile } = useMedia(`(max-width:1273px)`);
+  const navigate = useNavigate();
 
   return (
     <S.CardImoveis mobile={mobile} flexdirection={flexdirection}>
       <div className="filho-one">
-        {/* <h2>{formatePrice(Number(item.mes))}/mês</h2> */}
+        <h2>{formatePrice(Number(item.mes))}/mês</h2>
         {item.imagens && (
           <img src={`${URL_BASE_IMG}${item.imagens[0]}`} alt={item.nome} />
         )}
@@ -34,7 +36,9 @@ const CardsImoveis = ({ item, flexdirection }: CardProps) => {
         </S.BoxMoney>
         <S.BoxLocation mobile={mobile}>
           <span>{item.localizacao}</span>
-          <button>Detalhes</button>
+          <button onClick={() => navigate(`/imoveis/${item.id}`)}>
+            Detalhes
+          </button>
         </S.BoxLocation>
       </div>
     </S.CardImoveis>

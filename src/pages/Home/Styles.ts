@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { flexItem } from "../../Styles/flex";
 
 export const Main = styled.main`
   padding: 1.25rem;
@@ -6,8 +7,7 @@ export const Main = styled.main`
 
 export const ContainerCards = styled.div<{ mobile: boolean }>`
   max-width: 1220px;
-  display: flex;
-  align-items: center;
+  ${flexItem}
   flex-wrap: ${({ mobile }) => mobile && "wrap"};
   margin: 10px auto auto auto;
   gap: 0.94rem;
@@ -38,4 +38,14 @@ export const Button = styled.button<{ background: string; color: string }>`
   cursor: pointer;
   border: none;
   margin-top: 15px;
+`;
+
+export const ButtonPlus = styled(Button)<{
+  background?: string;
+  color?: string;
+}>`
+  margin-top: 40px;
+  margin-inline: auto;
+  background-color: #000000;
+  color: #ffffff;
 `;
