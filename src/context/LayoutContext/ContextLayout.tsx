@@ -1,8 +1,8 @@
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 
 type LayoutProps = {
-  setId: React.Dispatch<React.SetStateAction<string>>;
   id: string;
+  setId: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const ContextLayout = createContext<LayoutProps | null>(null);

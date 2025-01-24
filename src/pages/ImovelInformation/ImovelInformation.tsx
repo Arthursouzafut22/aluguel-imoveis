@@ -3,13 +3,13 @@ import * as S from "./Styles";
 import { UseLayout } from "../../context/LayoutContext/ContextLayout";
 import { useEffect } from "react";
 import { useQueryProperty } from "../../api/propertyService";
+import Slide from "./Slide/Slide";
 
 const ImovelInformation = () => {
   const { setId } = UseLayout();
   const { id } = useParams();
   const { data } = useQueryProperty("/");
-  const searchProperty = data?.find(i => i.id === Number(id));
-  console.log(searchProperty)
+  const searchProperty = data?.find((i) => i.id === Number(id));
 
   useEffect(() => {
     setId(id || "");
@@ -17,9 +17,7 @@ const ImovelInformation = () => {
 
   return (
     <S.Section>
-      {searchProperty?.nome} 
-
-
+      <Slide searchProperty={searchProperty} />
     </S.Section>
   );
 };
