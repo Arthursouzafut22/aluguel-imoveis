@@ -8,7 +8,7 @@ const ContainerCards = () => {
 
   return (
     <S.ContainerCards mobile={mobile}>
-      <S.CardsItems mobile={mobile}>
+      <S.CardsItems mobile={mobile} background={"#ffffff"}>
         <h2>Para inquilinos</h2>
         <p>
           Encontre o aluguel perfeito. Favorite imóveis e entre em contato com

@@ -2,7 +2,6 @@ import { URL_BASE_IMG } from "../../../api/base_Urls";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "../../../../node_modules/swiper/modules/pagination.css";
 import "../../../../node_modules/swiper/swiper.css";
-// import "../../../../node_modules/"
 import { Pagination, Autoplay } from "swiper/modules";
 import { PropertProps } from "../../../api/Types";
 

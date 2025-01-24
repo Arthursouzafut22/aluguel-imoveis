@@ -12,6 +12,10 @@ export const GlobalStyles = createGlobalStyle`
     font-family: "Poppins", serif;
  }
 
+ body{
+   background-color: #F9F9F9;
+ }
+
  a{
     display: block;
     text-decoration: none;

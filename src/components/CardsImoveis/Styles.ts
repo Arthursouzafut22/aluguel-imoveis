@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { flexBetween, flexColummStart, flexItem } from "../../Styles/flex";
+import { ButtonColor, WhiteColor } from "../../Styles/Colors";
 
 export const CardImoveis = styled.div<{
   mobile: boolean;
@@ -10,6 +11,7 @@ export const CardImoveis = styled.div<{
   border-radius: 0.5rem;
   box-shadow: 2px 5px 12px -2px rgba(204, 204, 204, 0.39);
   width: 100%;
+  background-color: ${WhiteColor};
 
   @media screen and (max-width: 767px) {
     flex-wrap: wrap;
@@ -23,7 +25,7 @@ export const CardImoveis = styled.div<{
     h2 {
       position: absolute;
       font-size: 1rem;
-      background-color: #ffffff;
+      background-color: ${WhiteColor};
       padding-inline: 0.31rem;
       padding-block: 0.19rem;
       border-radius: 0.5rem;
@@ -132,8 +134,8 @@ export const BoxLocation = styled.div<{ mobile: boolean }>`
 
   button {
     font-size: 0.94rem;
-    color: #ffffff;
-    background-color: #a795ff;
+    color: ${WhiteColor};
+    background-color: ${ButtonColor};
     border: none;
     display: block;
     padding-block: 0.5rem;
