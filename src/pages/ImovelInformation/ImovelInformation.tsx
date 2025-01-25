@@ -9,6 +9,8 @@ import { BsBookmarkHeartFill } from "react-icons/bs";
 import useMedia from "../../Hooks/UseMedia";
 import ContainerOne from "./ContainerOne/ContainerOne";
 import ContainerTwo from "./ContainerTwo/ContainerTwo";
+import FormProprietary from "./FormProprietary/FormProprietary";
+import { UseAuth } from "../../context/LoginContext/ContexLogin";
 
 const ImovelInformation = () => {
   const { setId } = UseLayout();
@@ -16,6 +18,7 @@ const ImovelInformation = () => {
   const { id } = useParams();
   const { data } = useQueryProperty("/");
   const searchProperty = data?.find((i) => i.id === Number(id));
+  const { user } = UseAuth();
 
   useEffect(() => {
     setId(id || "");
@@ -50,8 +53,14 @@ const ImovelInformation = () => {
               Salvar imóvel
             </button>
             <S.CardOwner>
-              <h3>Fale com o proprietário</h3>
-              <p>Você precisar estar logado para enviar uma mensagem</p>
+              {user ? (
+                <FormProprietary />
+              ) : (
+                <>
+                  <h3>Fale com o proprietário</h3>
+                  <p>Você precisar estar logado para enviar uma mensagem</p>
+                </>
+              )}
             </S.CardOwner>
           </S.WrapperTwo>
         </S.Box>

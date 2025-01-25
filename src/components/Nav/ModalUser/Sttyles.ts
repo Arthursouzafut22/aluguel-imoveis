@@ -9,6 +9,7 @@ export const Modal = styled.div`
   background-color: ${WhiteColor};
   position: absolute;
   transform: translate(-78%, 6%);
+  z-index: 15;
 
   button {
     font-size: 0.88rem;

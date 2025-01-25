@@ -37,7 +37,7 @@ export const ContainerOne = styled.div<{ mobile: boolean }>`
   }
   .text-location {
     font-size: 1rem;
-    ${flexItem}
+    ${flexItem};
     gap: 0.25rem;
     color: #c2410c;
     line-height: 24px;
@@ -147,7 +147,8 @@ export const ContainerComodidades = styled.div<{ mobile: boolean }>`
 `;
 
 export const WrapperTwo = styled.aside<{ mobile: boolean }>`
-  width: 100%;
+  max-width: 100%;
+  width: ${({ mobile }) => mobile && "100%"};
 
   button {
     font-size: 1rem;

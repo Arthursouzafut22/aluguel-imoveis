@@ -15,8 +15,6 @@ const Login = () => {
       const user = result.user;
       setUser(user);
       localStorage.setItem("user", JSON.stringify(user));
-      console.log("Usuário logado:", user);
-      alert(`Bem-vindo, ${user.displayName}!`);
     } catch (error) {
       console.error("Erro ao fazer login:", error);
     }

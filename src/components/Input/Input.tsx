@@ -1,21 +1,30 @@
-type InputProps = React.ComponentProps<"input">;
+type InputProps = React.ComponentProps<"input"> & {
+  label: string;
+};
 
 const Input: React.FC<InputProps> = ({
   type,
   value,
-  id,
+  name,
+  label,
   placeholder,
   ...rest
 }) => {
   return (
-    <input
-      type={type}
-      id={id}
-      name={id}
-      value={value}
-      placeholder={placeholder}
-      {...rest}
-    />
+    <>
+      {label && (
+        <label htmlFor={label} style={{ fontWeight: "600" }}>
+          {label}
+        </label>
+      )}
+      <input
+        type={type}
+        name={name}
+        value={value}
+        placeholder={placeholder}
+        {...rest}
+      />
+    </>
   );
 };
 
