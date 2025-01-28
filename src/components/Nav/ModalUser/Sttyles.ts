@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { WhiteColor } from "../../../Styles/Colors";
+import { flexColumns } from "../../../Styles/flex";
 
 export const Modal = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${flexColumns("initial","initial")};
   width: 11.88rem;
   border-radius: 0.5rem;
   background-color: ${WhiteColor};

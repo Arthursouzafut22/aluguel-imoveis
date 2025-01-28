@@ -65,10 +65,10 @@ const ImovelInformation = () => {
             </S.CardOwner>
           </S.WrapperTwo>
         </S.Box>
+        <S.MapContainer>
+          <SimpleMap />
+        </S.MapContainer>
       </S.WrapperGlobal>
-      <S.MapContainer>
-        <SimpleMap />
-      </S.MapContainer>
     </S.Section>
   );
 };

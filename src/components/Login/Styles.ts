@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { WhiteColor } from "../../Styles/Colors";
+import { flexItem } from "../../Styles/flex";
 
 export const Button = styled.button`
   font-size: 1rem;
-  display: flex;
-  align-items: center;
+  ${flexItem};
   gap: 0.38rem;
   color: ${WhiteColor};
   background-color: rgba(0, 0, 0, 0.43);

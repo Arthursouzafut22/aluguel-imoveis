@@ -1,20 +1,10 @@
 import styled, { css } from "styled-components";
 import { WhiteColor, PurpleColor } from "../../Styles/Colors";
-
-const flex = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const flexItem = css`
-  display: flex;
-  align-items: center;
-`;
+import { flexItem, flex } from "../../Styles/flex";
 
 const styleButton = css`
   font-size: 1rem;
-  ${flex};
+  ${flex("center", "center")};
   color: ${WhiteColor};
   height: 40px;
   width: 40px;
@@ -27,8 +17,7 @@ export const Header = styled.header<{ mobile: boolean }>`
   padding: 1.25rem;
 
   .wrapper {
-    display: flex;
-    align-items: center;
+    ${flexItem}
 
     img {
       display: block;
@@ -134,9 +123,7 @@ export const Wrapper = styled.div<{ mobile: boolean; visible: boolean }>`
   }
 
   form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    ${flex("center", "center")};
     flex-direction: ${({ mobile }) => (mobile ? "column" : "row")};
     gap: 0.38rem;
     margin-top: 20px;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { flex } from "../../Styles/flex";
 
 export const Footer = styled.footer`
   padding: 1.25rem;
@@ -7,9 +8,7 @@ export const Footer = styled.footer`
 `;
 
 export const Box = styled.div<{ mobile: boolean }>`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${flex("center", "space-between")};
   flex-wrap: wrap;
   max-width: 1220px;
   /* flex-wrap: ${({ mobile }) => mobile && "wrap"} !important; */

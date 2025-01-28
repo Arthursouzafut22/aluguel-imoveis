@@ -4,11 +4,15 @@ import Login from "../Login/Login";
 import { FaRegBell } from "react-icons/fa";
 import { UseAuth } from "../../context/LoginContext/ContexLogin";
 import ModalUser from "./ModalUser/ModalUser";
-import React from "react";
+import React, { useCallback } from "react";
 
 const Nav = () => {
   const { user } = UseAuth();
   const [activeModal, setActiveModal] = React.useState<boolean>(false);
+
+  const closeModal = useCallback(() => {
+    setActiveModal(false);
+  }, []);
 
   return (
     <nav>
@@ -53,7 +57,7 @@ const Nav = () => {
             >
               {user.photoURL && <img src={String(user?.photoURL)} alt="logo" />}
             </button>
-            {activeModal && <ModalUser />}
+            {activeModal && <ModalUser closeModal={closeModal} />}
           </div>
         )}
         {!user && <Login />}

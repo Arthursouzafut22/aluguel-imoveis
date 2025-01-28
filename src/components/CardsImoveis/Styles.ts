@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { flexBetween, flexColummStart, flexItem } from "../../Styles/flex";
+import { flex, flexColummStart, flexItem } from "../../Styles/flex";
 import { ButtonColor, WhiteColor } from "../../Styles/Colors";
 
 export const CardImoveis = styled.div<{
   mobile: boolean;
   flexdirection: string;
 }>`
-  ${flexBetween}
+  ${flex("center","space-between")};
   flex-direction: ${({ flexdirection }) => flexdirection};
   border-radius: 0.5rem;
   box-shadow: 2px 5px 12px -2px rgba(204, 204, 204, 0.39);

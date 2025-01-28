@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ButtonColor, WhiteColor } from "../../Styles/Colors";
-import { flexItem } from "../../Styles/flex";
+import { flexItem, flexColumns } from "../../Styles/flex";
 
 export const Section = styled.section``;
 
@@ -18,9 +18,7 @@ export const Box = styled.div<{ mobile: boolean }>`
 `;
 
 export const WrapperOne = styled.div<{ mobile: boolean }>`
-  display: flex;
-  align-items: start;
-  flex-direction: column;
+  ${flexColumns("initial", "start")}
   max-width: ${({ mobile }) => (mobile ? "100%" : "800px")};
   gap: 0.88rem;
 `;
@@ -186,6 +184,5 @@ export const CardOwner = styled.div`
 
 export const MapContainer = styled.div`
   max-width: 1220px;
-  margin: 20px auto auto auto;
-  padding: 1.25rem;
+  margin: 40px auto auto auto;
 `;
