@@ -183,3 +183,9 @@ export const CardOwner = styled.div`
     margin-top: 12px;
   }
 `;
+
+export const MapContainer = styled.div`
+  max-width: 1220px;
+  margin: 20px auto auto auto;
+  padding: 1.25rem;
+`;

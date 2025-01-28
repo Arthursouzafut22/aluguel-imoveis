@@ -7,22 +7,20 @@ const styleInputs = css`
   font-size: 1.06rem;
   width: 100%;
   border-radius: 0.5rem;
-  border: 1px solid #727986;
+  border: 2px solid darkgray;
 `;
 
 export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  width: 100% !important;
 
   input {
     ${styleInputs}
-    flex: 1;
+    width: 100%;
     margin-bottom: 5px;
 
     &:focus {
       outline: 2px solid ${ButtonColor};
-      border: 1px solid transparent;
+      border: 2px solid transparent;
     }
   }
 
@@ -41,7 +39,7 @@ export const Form = styled.form`
 
       &:focus {
         outline: 2px solid ${ButtonColor};
-        border: 1px solid transparent;
+        border: 2px solid transparent;
       }
     }
   }

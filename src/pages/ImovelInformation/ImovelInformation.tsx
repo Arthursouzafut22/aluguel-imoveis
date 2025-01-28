@@ -11,6 +11,7 @@ import ContainerOne from "./ContainerOne/ContainerOne";
 import ContainerTwo from "./ContainerTwo/ContainerTwo";
 import FormProprietary from "./FormProprietary/FormProprietary";
 import { UseAuth } from "../../context/LoginContext/ContexLogin";
+import SimpleMap from "../../components/Mapa/SimpleMap";
 
 const ImovelInformation = () => {
   const { setId } = UseLayout();
@@ -65,6 +66,9 @@ const ImovelInformation = () => {
           </S.WrapperTwo>
         </S.Box>
       </S.WrapperGlobal>
+      <S.MapContainer>
+        <SimpleMap />
+      </S.MapContainer>
     </S.Section>
   );
 };
