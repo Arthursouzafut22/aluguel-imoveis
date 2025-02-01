@@ -1,9 +1,9 @@
-import { URL_BASE_IMG } from "../../../api/base_Urls";
+import { URL_BASE_IMG } from "../../../services/base_Urls";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "../../../../node_modules/swiper/modules/pagination.css";
 import "../../../../node_modules/swiper/swiper.css";
 import { Pagination, Autoplay } from "swiper/modules";
-import { PropertProps } from "../../../api/Types";
+import { PropertProps } from "../../../services/Types";
 
 const Slide = ({ searchProperty }: { searchProperty?: PropertProps }) => {
   return (

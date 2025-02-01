@@ -1,4 +1,4 @@
-import { useQueryProperty } from "../../api/propertyService";
+import { useQueryProperty } from "../../services/PropertyService/propertyService";
 import * as S from "./Styles";
 import CardsImoveis from "../../components/CardsImoveis/CardsImoveis";
 import React, { Suspense } from "react";

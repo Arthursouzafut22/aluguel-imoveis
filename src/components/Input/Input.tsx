@@ -1,5 +1,5 @@
 type InputProps = React.ComponentProps<"input"> & {
-  label: string;
+  label?: string;
 };
 
 const Input: React.FC<InputProps> = ({
@@ -13,7 +13,7 @@ const Input: React.FC<InputProps> = ({
   return (
     <>
       {label && (
-        <label htmlFor={label} style={{ fontWeight: "600" }}>
+        <label htmlFor={label} style={{ fontWeight: "700" }}>
           {label}
         </label>
       )}

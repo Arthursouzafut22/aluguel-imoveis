@@ -1,5 +1,5 @@
 import * as S from "./Styles";
-import { useQueryProperty } from "../../api/propertyService";
+import { useQueryProperty } from "../../services/PropertyService/propertyService";
 import { Suspense } from "react";
 import CardsImoveis from "../CardsImoveis/CardsImoveis";
 import useMedia from "../../Hooks/UseMedia";

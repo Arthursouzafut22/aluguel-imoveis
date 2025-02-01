@@ -8,6 +8,7 @@ const ModalUser = ({ closeModal }: { closeModal: () => void }) => {
 
   const loGout = () => {
     setUser(null);
+    navigate("/");
     localStorage.removeItem("user");
   };
 

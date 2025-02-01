@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import * as S from "./Styles";
 import { UseLayout } from "../../context/LayoutContext/ContextLayout";
 import { useEffect } from "react";
-import { useQueryProperty } from "../../api/propertyService";
+import { useQueryProperty } from "../../services/PropertyService/propertyService";
 import Slide from "./Slide/Slide";
 import { FaCheck } from "react-icons/fa";
 import { BsBookmarkHeartFill } from "react-icons/bs";
@@ -12,6 +12,7 @@ import ContainerTwo from "./ContainerTwo/ContainerTwo";
 import FormProprietary from "./FormProprietary/FormProprietary";
 import { UseAuth } from "../../context/LoginContext/ContexLogin";
 import SimpleMap from "../../components/Mapa/SimpleMap";
+import { UseFavorites } from "../../context/FavoritesContext/FavoritesContext";
 
 const ImovelInformation = () => {
   const { setId } = UseLayout();
@@ -19,12 +20,19 @@ const ImovelInformation = () => {
   const { id } = useParams();
   const { data } = useQueryProperty("/");
   const searchProperty = data?.find((i) => i.id === Number(id));
+  const {
+    addPropertyToFavorites,
+    addFavoritesActive,
+    deletePropertyToFavorites,
+  } = UseFavorites();
   const { user } = UseAuth();
 
   useEffect(() => {
     setId(id || "");
     window.scrollTo({ behavior: "smooth", top: 0 });
   }, [id, setId]);
+
+  if (!searchProperty) return <p>Carregando....</p>;
 
   return (
     <S.Section>
@@ -49,10 +57,21 @@ const ImovelInformation = () => {
             </S.ContainerComodidades>
           </S.WrapperOne>
           <S.WrapperTwo mobile={mobile}>
-            <button>
-              <BsBookmarkHeartFill />
-              Salvar imóvel
-            </button>
+            {addFavoritesActive && (
+              <button
+                style={{ background: "#EF4444" }}
+                onClick={() => deletePropertyToFavorites(searchProperty.id)}
+              >
+                <BsBookmarkHeartFill />
+                Remover dos favoritos
+              </button>
+            )}
+            {!addFavoritesActive && (
+              <button onClick={() => addPropertyToFavorites(searchProperty)}>
+                <BsBookmarkHeartFill />
+                Salvar imóvel
+              </button>
+            )}
             <S.CardOwner>
               {user ? (
                 <FormProprietary />

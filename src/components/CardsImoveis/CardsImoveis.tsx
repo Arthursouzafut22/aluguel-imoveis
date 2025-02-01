@@ -1,6 +1,6 @@
 import * as S from "./Styles";
 import { formatePrice } from "../FormatePrice/FormatePrice";
-import { URL_BASE_IMG } from "../../api/base_Urls";
+import { URL_BASE_IMG } from "../../services/base_Urls";
 import WrrapperAreas from "./WrrapperAreas/WrrapperAreas";
 import { time } from "./money";
 import useMedia from "../../Hooks/UseMedia";

@@ -1,13 +1,13 @@
 import * as S from "../Styles";
-import { PropertProps } from "../../../api/Types";
+import { PropertProps } from "../../../services/Types";
 import { FaBed } from "react-icons/fa";
 import { PiBathtubFill } from "react-icons/pi";
 import { FaRulerCombined } from "react-icons/fa";
 import useMedia from "../../../Hooks/UseMedia";
 
 const WrrapperAreas = ({ item }: { item: PropertProps }) => {
-    const {mobile} = useMedia("(max-width:333px)");
-    
+  const { mobile } = useMedia("(max-width:333px)");
+
   return (
     <S.WrrapperAreas mobile={mobile}>
       <S.Box mobile={mobile}>

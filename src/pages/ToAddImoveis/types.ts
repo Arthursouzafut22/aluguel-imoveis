@@ -1,0 +1,22 @@
+export type AddImoveisProps = {
+  tipo: "Apartamento" | "Condominío" | "Casa";
+  nome: string;
+  ["descrição"]: string;
+  rua: string;
+  numero: string | number;
+  bairro: string;
+  estados: string;
+  cidade: string;
+  cep: string;
+  quartos: string;
+  banheiros: string;
+  ["m²"]: string;
+  comodidades: string[];
+  semanal: string ;
+  mensal: string;
+  diaria: string;
+  ["proprietário"]: string;
+  email: string;
+  celular: string;
+  file: string;
+};

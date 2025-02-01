@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
-import { PropertProps } from "./Types";
-import { URL_BASE } from "./base_Urls";
+import { PropertProps } from "../Types";
+import { URL_BASE } from "../base_Urls";
 
 const propertyService = async (endPoint: string): Promise<PropertProps[]> => {
   const response = await fetch(URL_BASE + endPoint);

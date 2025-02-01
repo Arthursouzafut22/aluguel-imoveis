@@ -1,4 +1,4 @@
-import { PropertProps } from "../../api/Types";
+import { PropertProps } from "../../services/Types";
 
 export type CardProps = {
   item: PropertProps;

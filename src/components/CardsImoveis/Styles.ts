@@ -6,7 +6,7 @@ export const CardImoveis = styled.div<{
   mobile: boolean;
   flexdirection: string;
 }>`
-  ${flex("center","space-between")};
+  ${flex("center", "space-between")};
   flex-direction: ${({ flexdirection }) => flexdirection};
   border-radius: 0.5rem;
   box-shadow: 2px 5px 12px -2px rgba(204, 204, 204, 0.39);
