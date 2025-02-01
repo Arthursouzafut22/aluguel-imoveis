@@ -6,7 +6,7 @@
 # PropertyPulse
 
 ## 🏡 Introdução
-PropertyPulse é uma plataforma inovadora para cadastro e aluguel de imóveis, oferecendo uma experiência intuitiva para locadores e locatários. A aplicação permite que os usuários cadastrem imóveis, realizem aluguéis e gerenciem transações, contando com autenticação via Google e integração de pagamentos via Pix.
+PropertyPulse é uma plataforma inovadora para cadastro e aluguel de imóveis, oferecendo uma experiência intuitiva para locadores e locatários. A aplicação permite que os usuários cadastrem imóveis, realizem aluguéis e gerenciem transações, contando com autenticação via Google.
 
 # 🚀 Tecnologias Utilizadas
 
