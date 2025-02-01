@@ -3,6 +3,7 @@ import { useQueryProperty } from "../../services/PropertyService/propertyService
 import CardsImoveis from "../CardsImoveis/CardsImoveis";
 import useMedia from "../../Hooks/UseMedia";
 import { Suspense } from "react";
+import { config } from "./utils/utils";
 
 const ImoveisHighlights: React.FC = () => {
   const { data } = useQueryProperty("/destaques");
@@ -16,7 +17,7 @@ const ImoveisHighlights: React.FC = () => {
         {data &&
           data?.map((item) => (
             <Suspense fallback={<p>Carregando....</p>} key={item.id}>
-              <CardsImoveis item={item} flexdirection={"row"} />
+              <CardsImoveis config={config} item={item} flexdirection={"row"} />
             </Suspense>
           ))}
       </S.Box>

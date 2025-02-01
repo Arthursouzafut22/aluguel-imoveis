@@ -7,19 +7,23 @@ import useMedia from "../../Hooks/UseMedia";
 import { CardProps } from "./Types";
 import { useNavigate } from "react-router-dom";
 
-const CardsImoveis = ({ item, flexdirection }: CardProps) => {
+const CardsImoveis = ({ item, flexdirection, config }: CardProps) => {
   const { mobile } = useMedia(`(max-width:1273px)`);
   const navigate = useNavigate();
 
   return (
-    <S.CardImoveis mobile={mobile} flexdirection={flexdirection}>
-      <div className="filho-one">
+    <S.CardImoveis
+      mobile={mobile}
+      flexdirection={flexdirection}
+      config={config?.height}
+    >
+      <S.BoxOne mobile={mobile} config={config}>
         <h2>{formatePrice(Number(item.mes))}/mês</h2>
         {item.imagens && (
           <img src={`${URL_BASE_IMG}${item.imagens[0]}`} alt={item.nome} />
         )}
-      </div>
-      <div className="filho-two">
+      </S.BoxOne>
+      <S.BoxTwo mobile={mobile} config={config}>
         <S.BoxInfo>
           <p>{item.nome}</p>
           <p>{item.tipo}</p>
@@ -40,7 +44,7 @@ const CardsImoveis = ({ item, flexdirection }: CardProps) => {
             Detalhes
           </button>
         </S.BoxLocation>
-      </div>
+      </S.BoxTwo>
     </S.CardImoveis>
   );
 };

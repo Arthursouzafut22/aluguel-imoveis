@@ -10,6 +10,7 @@ import WrapperRent from "../components/Header/WrapperRent";
 import { ReactNode } from "react";
 import Footer from "../components/Footer/Footer";
 import ImovelInformation from "../pages/ImovelInformation/ImovelInformation";
+import SearchProperty from "../pages/SearchProperty/SearchProperty";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
@@ -36,6 +37,7 @@ const Router = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/messages" element={<Messages />} />
+          <Route path="/search" element={<SearchProperty />} />
         </Routes>
       </Layout>
       <Footer />

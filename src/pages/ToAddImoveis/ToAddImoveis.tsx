@@ -1,6 +1,6 @@
 import * as S from "./Styles";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createProperty } from "../../services/CreateProperty/createProperty";
 import { AddImoveisProps } from "./types";
 import Spinner from "../../components/Spinner/Spinner";
@@ -36,6 +36,10 @@ const ToAddImoveis = () => {
       setFile((prevFiles) => [...prevFiles, ...selectedFiles]);
     }
   }
+
+  useEffect(() => {
+    window.scrollTo({ behavior: "auto", top: 0 });
+  }, []);
 
   return (
     <S.Section>

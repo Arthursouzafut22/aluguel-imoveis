@@ -3,7 +3,7 @@ import { WhiteColor } from "../../../Styles/Colors";
 import { flexColumns } from "../../../Styles/flex";
 
 export const Modal = styled.div`
-  ${flexColumns("initial","initial")};
+  ${flexColumns("initial", "initial")};
   width: 11.88rem;
   border-radius: 0.5rem;
   background-color: ${WhiteColor};
@@ -21,5 +21,11 @@ export const Modal = styled.div`
     padding-block: 0.5rem;
     border: none;
     background-color: transparent;
+    transition: 0.3s all;
+
+    &:hover {
+      background-color: #f0ebff;
+      border-radius: 0.5rem;
+    }
   }
 `;

@@ -3,6 +3,7 @@ import { useQueryProperty } from "../../services/PropertyService/propertyService
 import { Suspense } from "react";
 import CardsImoveis from "../CardsImoveis/CardsImoveis";
 import useMedia from "../../Hooks/UseMedia";
+import { config } from "./utils/utils";
 
 const NewlyAdded = () => {
   const { data } = useQueryProperty("/newly");
@@ -16,7 +17,11 @@ const NewlyAdded = () => {
         {data &&
           data.map((item) => (
             <Suspense fallback={<p>Carregando....</p>} key={item.id}>
-              <CardsImoveis item={item} flexdirection={"column"} />
+              <CardsImoveis
+                config={config}
+                item={item}
+                flexdirection={"column"}
+              />
             </Suspense>
           ))}
       </S.Box>

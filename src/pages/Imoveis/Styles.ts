@@ -9,7 +9,7 @@ export const Box = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
   max-width: 1220px;
   margin: 0 auto;
 

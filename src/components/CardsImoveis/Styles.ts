@@ -5,6 +5,7 @@ import { ButtonColor, WhiteColor } from "../../Styles/Colors";
 export const CardImoveis = styled.div<{
   mobile: boolean;
   flexdirection: string;
+  config?: string;
 }>`
   ${flex("center", "space-between")};
   flex-direction: ${({ flexdirection }) => flexdirection};
@@ -12,45 +13,66 @@ export const CardImoveis = styled.div<{
   box-shadow: 2px 5px 12px -2px rgba(204, 204, 204, 0.39);
   width: 100%;
   background-color: ${WhiteColor};
+  height: ${({ config }) => config};
 
   @media screen and (max-width: 767px) {
     flex-wrap: wrap;
-  }
-
-  .filho-one {
-    max-width: ${({ mobile }) => (mobile ? "initial" : "")}; // 300px;
     width: 100%;
-    position: relative;
+    height: auto;
+  }
+`;
 
-    h2 {
-      position: absolute;
-      font-size: 1rem;
-      background-color: ${WhiteColor};
-      padding-inline: 0.31rem;
-      padding-block: 0.19rem;
-      border-radius: 0.5rem;
-      top: -5px;
-      left: 10px;
-    }
+export const BoxOne = styled.div<{
+  mobile: boolean;
+  config?: { height?: string; flex?: number; top?: string; imgWidth?: string };
+}>`
+  max-width: ${({ mobile }) => (mobile ? "initial" : "")};
+  width: 100%;
+  position: relative;
 
+  @media screen and (max-width: 767px) {
     img {
-      display: block;
-      max-width: 100% !important;
-      border-radius: 0.5rem;
-      width: 100%;
+      height: auto !important;
     }
   }
-  .filho-two {
-    max-width: ${({ mobile }) => (mobile ? "initial" : "300px")};
-    ${flexColummStart}
-    width: 100%;
-    max-width: 100%;
-    padding-inline: 0.94rem;
 
-    @media screen and (max-width: 767px) {
-      max-width: 100% !important;
-      flex: 2;
-    }
+  h2 {
+    position: absolute;
+    font-size: 1rem;
+    background-color: ${WhiteColor};
+    padding-inline: 0.31rem;
+    padding-block: 0.19rem;
+    border-radius: 0.5rem;
+    top: ${({ config }) => config?.top};
+    left: 10px;
+  }
+
+  img {
+    display: block;
+    max-width: 100% !important;
+    width: 100%;
+    border-radius: 0.5rem;
+    margin: 0;
+    padding: 0;
+    height: ${({ config }) => config?.imgWidth};
+    object-fit: cover;
+  }
+`;
+
+export const BoxTwo = styled.div<{
+  mobile: boolean;
+  config?: { height?: string; flex?: number; top?: string; imgWidth?: string };
+}>`
+  max-width: ${({ mobile }) => (mobile ? "initial" : "300px")};
+  ${flexColummStart}
+  width: 100%;
+  max-width: 100%;
+  padding-inline: 0.94rem;
+  flex: ${({ config }) => config?.flex};
+
+  @media screen and (max-width: 767px) {
+    max-width: 100% !important;
+    flex: 2;
   }
 `;
 

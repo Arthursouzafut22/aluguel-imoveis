@@ -12,7 +12,7 @@ export type AddImoveisProps = {
   banheiros: string;
   ["m²"]: string;
   comodidades: string[];
-  semanal: string ;
+  semanal: string;
   mensal: string;
   diaria: string;
   ["proprietário"]: string;

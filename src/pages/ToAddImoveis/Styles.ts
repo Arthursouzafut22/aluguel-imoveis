@@ -188,9 +188,9 @@ export const BoxFiles = styled.div`
 `;
 
 export const Button = styled.button`
-display: flex !important;
-align-items: center;
-justify-content: center;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
   font-size: 1rem;
   font-weight: 700;
   width: 100%;

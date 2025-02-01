@@ -17,7 +17,7 @@ export const flexColummStart = css`
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: start;
+  justify-content: space-between;
 `;
 
 export const flexColumns = (justify: string, align: string) => {

@@ -55,6 +55,7 @@ export const ContainerOne = styled.div<{ mobile: boolean }>`
 export const BoxValues = styled.div`
   ${flexItem}
   justify-content: space-between;
+  gap: 3.13rem;
 
   @media screen and (max-width: 767px) {
     flex-wrap: wrap;
