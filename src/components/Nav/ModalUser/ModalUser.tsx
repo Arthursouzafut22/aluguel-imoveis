@@ -21,6 +21,7 @@ const ModalUser = ({ closeModal }: { closeModal: () => void }) => {
     <S.Modal>
       <button onClick={() => navigateRoutes("/profile")}>Perfil</button>
       <button onClick={() => navigateRoutes("/favorites")}>Favoritos</button>
+      <button onClick={() => navigateRoutes("/my-property")}>Meus imóveis</button>
       <button onClick={loGout}>Sair</button>
     </S.Modal>
   );

@@ -12,11 +12,15 @@ import BoxComodidades from "./BoxComodidades/BoxComodidades";
 import BoxPayment from "./BoxPayment/BoxPayment";
 import BoxOwner from "./BoxOwner/BoxOwner";
 import BoxFiles from "./BoxFiles/BoxFiles";
+import { useNavigate } from "react-router-dom";
+import { sylesSpinner } from "./Utils/utils";
+import { toast } from "react-toastify";
 
 const ToAddImoveis = () => {
   const [file, setFile] = useState<File[]>([]);
   const { register, handleSubmit } = useForm<AddImoveisProps>({});
   const [status, setStatus] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   async function onSubmit(dataValues: AddImoveisProps) {
     if (!file || !dataValues) return;
@@ -25,6 +29,8 @@ const ToAddImoveis = () => {
     setStatus(true);
     await createProperty(file, dataValues);
     setStatus(false);
+    navigate("/my-property");
+    toast.success(`Imóvel Adicionado Com Sucesso.`);
   }
 
   function changeFile(event: React.ChangeEvent<HTMLInputElement>) {
@@ -56,7 +62,9 @@ const ToAddImoveis = () => {
           <BoxOwner register={register} />
           <BoxFiles changeFile={changeFile} />
 
-          <S.Button>{status ? <Spinner /> : "Adicionar Imóvel"}</S.Button>
+          <S.Button>
+            {status ? <Spinner config={sylesSpinner} /> : "Adicionar Imóvel"}
+          </S.Button>
         </S.Form>
       </S.Box>
     </S.Section>

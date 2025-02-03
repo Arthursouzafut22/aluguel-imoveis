@@ -50,3 +50,10 @@ export function validateValue(e: React.ChangeEvent<HTMLInputElement>) {
   const v = Number(e.target.value);
   if (v < 1) return (e.target.value = "1");
 }
+
+export const sylesSpinner = {
+  width: "1.8rem",
+  height: "1.8rem",
+  borderTop: "5px solid #fff",
+  borderLeft: "5px solid #fff",
+};
