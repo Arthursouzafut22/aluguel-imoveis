@@ -1,7 +1,7 @@
 export type PropertProps = {
   id: number;
   nome: string;
-  tipo: "casa" | "apartamento" | "condominio";
+  tipo: "Casa" | "Apartamento" | "Condominío";
   camas: number;
   banheiros: number;
   metros_quadrados: number;
@@ -12,4 +12,13 @@ export type PropertProps = {
   semanal: string;
   descricao: string;
   comodidades: string[];
+  rua?: string;
+  numero?: string | number;
+  bairro?: string;
+  estado?: string;
+  cidade?: string;
+  cep?: string;
+  ["nome_proprietario"]?: string;
+  email?: string;
+  ["celular_proprietario"]?: string;
 };

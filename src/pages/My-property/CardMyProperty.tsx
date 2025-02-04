@@ -19,7 +19,10 @@ const CardMyProperty = ({ item, setDados }: CardProps) => {
         <span>Endereço: Alameda Jockey Club de Sorocaba, APARECIDA DO RIO</span>
         <p>{item.localizacao}</p>
         <S.BoxButtons>
-          <S.Button background={"#2563EB"} onClick={() => navigate("/edit")}>
+          <S.Button
+            background={"#2563EB"}
+            onClick={() => navigate(`/edit/${item.id}`)}
+          >
             Editar
           </S.Button>
           <S.Button background={"#EF4444"} onClick={() => setActive(true)}>

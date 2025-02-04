@@ -26,7 +26,7 @@ const Router = () => {
           <Route path="/messages" element={<Messages />} />
           <Route path="/search" element={<SearchProperty />} />
           <Route path="/my-property" element={<MyProperty />} />
-          <Route path="/edit" element={<Edit />} />
+          <Route path="/edit/:id" element={<Edit />} />
         </Routes>
       </Layout>
       <Footer />
