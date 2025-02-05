@@ -1,10 +1,15 @@
-import { Suspense } from "react";
-import { UseFavorites } from "../../context/FavoritesContext/FavoritesContext";
+import { Suspense, useEffect, useState } from "react";
 import * as S from "./Styles";
 import CardsImoveis from "../../components/CardsImoveis/CardsImoveis";
+import { PropertProps } from "../../services/Types";
 
 const Favorites = () => {
-  const { favorites } = UseFavorites();
+  const [favorites, setFavorites] = useState<PropertProps[]>([]);
+
+  useEffect(() => {
+    const item = localStorage.getItem("favorites") || "[]";
+    setFavorites(JSON.parse(item));
+  }, []);
 
   return (
     <S.Section>

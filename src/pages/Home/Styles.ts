@@ -47,6 +47,7 @@ export const ButtonPlus = styled(Button)<{
   margin-top: 40px;
   margin-inline: auto;
   background-color: #000000;
-  padding-block: 0.42rem;
+  padding-block: 0.6rem;
+  padding-inline: 1.2rem;
   color: #ffffff;
 `;

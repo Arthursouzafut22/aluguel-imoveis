@@ -1,6 +1,8 @@
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { PropertProps } from "../../services/Types";
 import { FavoritestProps } from "./types";
+import { toast } from "react-toastify";
+import { UseAuth } from "../LoginContext/ContexLogin";
 
 const ContexFavorites = createContext<FavoritestProps | null>(null);
 
@@ -12,23 +14,57 @@ export const UseFavorites = () => {
 
 const FavoritesContext = ({ children }: PropsWithChildren) => {
   const [favorites, setFavorites] = useState<PropertProps[]>([]);
-  const [addFavoritesActive, setAddFavoritesActive] = useState<boolean>(false);
-
-  console.log(favorites);
+  const { user } = UseAuth();
 
   // Adicionar Imovel aos Favoritos...
-  const addPropertyToFavorites = (propertyTo: PropertProps) => {
-    // setFavorites([...favorites, propertyTo]);
-    const newPropertyTo = { ...propertyTo, saveItem: false };
-    setFavorites(() => [...favorites, newPropertyTo]);
-    setAddFavoritesActive(true);
+  const addPropertyToFavorites = (
+    propertyTo: PropertProps,
+    id: string | undefined
+  ) => {
+    if (!user) {
+      return toast.error(`Você precisa estar logado para salvar um imóvel`);
+    }
+
+    // Recupera os favoritos existentes do localStorage
+    const storedFavorites = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
+
+    // Verifica se o imóvel já está salvo
+    const alreadySaved = storedFavorites.some(
+      (fav: PropertProps) => fav.id === Number(id)
+    );
+
+    if (alreadySaved) {
+      return toast.warning("Este imóvel já está salvo nos favoritos!");
+    }
+
+    // Adiciona o novo imóvel e atualiza o localStorage
+    const updatedFavorites = [
+      ...storedFavorites,
+      { ...propertyTo, save: true },
+    ];
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+
+    // Atualiza o estado
+    setFavorites(updatedFavorites);
   };
 
   // Remover Imovel dos Favoritos...
-  const deletePropertyToFavorites = (propertyTo: number) => {
-    const remove = favorites.filter((i) => i.id !== propertyTo);
-    setFavorites(remove);
-    setAddFavoritesActive(false);
+  const deletePropertyToFavorites = (propertyTo: PropertProps) => {
+    // Recupera os favoritos salvos
+    const storedFavorites = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
+
+    // Remove apenas o imóvel com o ID correspondente
+    const updatedFavorites = storedFavorites.filter(
+      (fav: PropertProps) => fav.id !== propertyTo.id
+    );
+
+    // Atualiza o estado e o localStorage
+    setFavorites(updatedFavorites);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
   return (
@@ -38,7 +74,6 @@ const FavoritesContext = ({ children }: PropsWithChildren) => {
         setFavorites,
         addPropertyToFavorites,
         deletePropertyToFavorites,
-        addFavoritesActive,
       }}
     >
       {children}

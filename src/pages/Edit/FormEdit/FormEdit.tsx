@@ -11,12 +11,18 @@ import { useForm } from "react-hook-form";
 import { editProperty } from "../../../services/EditProperty/editProperty";
 import { useQueryProperty } from "../../../services/PropertyService/propertyService";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import Spinner from "../../../components/Spinner/Spinner";
+import { sylesSpinner } from "../../ToAddImoveis/Utils/utils";
 
 const FormEdit = ({ id }: { id: string | undefined }) => {
   const { register, handleSubmit, setValue } = useForm<AddImoveisProps>({});
   const { data } = useQueryProperty("/my-property");
   const [dados, setDados] = useState(data);
   const searchId = dados?.find((item) => item.id === Number(id));
+  const navigate = useNavigate();
+  const [status, setStatus] = useState<boolean>(false);
 
   useEffect(() => {
     setDados(data);
@@ -45,9 +51,11 @@ const FormEdit = ({ id }: { id: string | undefined }) => {
   }, [data, searchId, setValue]);
 
   async function onSubmit(dataValues: AddImoveisProps) {
-    console.log(dataValues);
-    await editProperty(id);
-    // toast.success(`Imóvel Adicionado Com Sucesso.`);
+    setStatus(true);
+    await editProperty(id, dataValues);
+    setStatus(false);
+    navigate("/my-property");
+    toast.success(`Imóvel Atualizado Com Sucesso.`);
   }
 
   return (
@@ -62,7 +70,9 @@ const FormEdit = ({ id }: { id: string | undefined }) => {
       <BoxPayment register={register} />
       <BoxOwner register={register} />
 
-      <S.Button>Atualizar Imóvel</S.Button>
+      <S.Button>
+        {status ? <Spinner config={sylesSpinner} /> : "Atualizar Imóvel"}
+      </S.Button>
     </S.Form>
   );
 };

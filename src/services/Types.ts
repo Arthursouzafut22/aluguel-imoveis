@@ -21,4 +21,5 @@ export type PropertProps = {
   ["nome_proprietario"]?: string;
   email?: string;
   ["celular_proprietario"]?: string;
+  save: boolean;
 };

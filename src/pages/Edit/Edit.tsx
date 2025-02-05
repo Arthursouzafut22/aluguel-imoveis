@@ -15,7 +15,7 @@ const Edit = () => {
   return (
     <S.Section>
       <S.Box>
-        <FormEdit id={id}/>
+        <FormEdit id={id} />
       </S.Box>
     </S.Section>
   );
