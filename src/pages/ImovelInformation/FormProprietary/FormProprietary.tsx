@@ -1,36 +1,48 @@
 import Input from "../../../components/Input/Input";
 import * as S from "./Styles";
 import { FaPaperPlane } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { schema } from "./Schema/Schema";
+import { FormProps } from "./types";
 
 const FormProprietary = () => {
+  const { register, handleSubmit } = useForm<FormProps>({
+    resolver: yupResolver(schema),
+  });
+
+  const onSumit = (data: FormProps) => {
+    console.log(data);
+  };
+
   return (
-    <S.Form onSubmit={(e) => e.preventDefault()}>
+    <S.Form onSubmit={handleSubmit(onSumit)}>
       <Input
+        {...register("nome", { required: true })}
         type="text"
         id="Nome:"
-        name="Nome:"
         label="Nome:"
         placeholder="Digite seu nome"
       />{" "}
       <Input
+        {...register("email", { required: true })}
         type="email"
         id="Email:"
-        name="Email:"
         label="Email:"
         placeholder="Digite seu email"
       />{" "}
       <Input
+        {...register("celular", { required: true })}
         type="number"
         id="Telefone:"
-        name="Telefone:"
         label="Telefone:"
         placeholder="Digite seu Telefone"
       />
       <div>
         <label htmlFor="Mensagem:">Mensagem:</label>
         <textarea
+          {...register("mensagem", { required: true })}
           rows={6}
-          name="Mensagem:"
           id="Mensagem:"
           placeholder="Digite sua mensagem"
         ></textarea>

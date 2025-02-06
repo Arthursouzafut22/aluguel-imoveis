@@ -48,7 +48,7 @@ export const comodidades: string[] = [
 
 export function validateValue(e: React.ChangeEvent<HTMLInputElement>) {
   const v = Number(e.target.value);
-  if (v < 1) return (e.target.value = "1");
+  if (v < 0) return (e.target.value = "0");
 }
 
 export const sylesSpinner = {

@@ -61,6 +61,7 @@ export const BoxValues = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
+    gap: 1rem;
   }
 
   div {

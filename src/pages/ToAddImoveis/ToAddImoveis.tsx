@@ -15,10 +15,14 @@ import BoxFiles from "./BoxFiles/BoxFiles";
 import { useNavigate } from "react-router-dom";
 import { sylesSpinner } from "./Utils/utils";
 import { toast } from "react-toastify";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { schema } from "./Schema/Schema";
 
 const ToAddImoveis = () => {
   const [file, setFile] = useState<File[]>([]);
-  const { register, handleSubmit } = useForm<AddImoveisProps>({});
+  const { register, handleSubmit } = useForm<AddImoveisProps>({
+    resolver: yupResolver(schema),
+  });
   const [status, setStatus] = useState<boolean>(false);
   const navigate = useNavigate();
 

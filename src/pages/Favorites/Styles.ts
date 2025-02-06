@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   padding: 1.25rem;
-  margin: 40px auto auto auto;
-  height: 80vh;
+  margin: 20px auto auto auto;
+  height: 100vh;
 
   h1 {
     text-align: center;
-    font-size: 30px;
+    font-size: 1.88rem;
     font-weight: 700;
+    margin-bottom: 15px;
   }
 `;
 

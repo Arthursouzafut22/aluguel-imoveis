@@ -2,7 +2,7 @@ import * as S from "./Styles";
 import { formatePrice } from "../FormatePrice/FormatePrice";
 import { URL_BASE_IMG } from "../../services/base_Urls";
 import WrrapperAreas from "./WrrapperAreas/WrrapperAreas";
-import { time } from "./money";
+import { time } from "./utils/money";
 import useMedia from "../../Hooks/UseMedia";
 import { CardProps } from "./Types";
 import { useNavigate } from "react-router-dom";

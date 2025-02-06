@@ -19,7 +19,11 @@ const ModalDelete = ({ item, setDados, setActive }: CardProps & setProps) => {
     <S.Section>
       <S.Wrapper>
         <S.Modal>
-          <p>Deseja excluir este imóvel ?</p>
+          <h2>Excluir Produto</h2>
+          <p>
+            Tem certeza que deseja excluir este imóvel? Esta ação não pode ser
+            desfeita.
+          </p>
           <div>
             <S.Button color={"#228B22"} onClick={confirmDeletion}>
               Sim

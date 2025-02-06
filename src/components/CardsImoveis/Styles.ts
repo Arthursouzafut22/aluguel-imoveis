@@ -38,7 +38,7 @@ export const BoxOne = styled.div<{
 
   h2 {
     position: absolute;
-    font-size: 1rem;
+    font-size: 1rem !important;
     background-color: ${WhiteColor};
     padding-inline: 0.31rem;
     padding-block: 0.19rem;

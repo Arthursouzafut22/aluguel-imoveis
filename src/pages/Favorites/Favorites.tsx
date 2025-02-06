@@ -2,6 +2,7 @@ import { Suspense, useEffect, useState } from "react";
 import * as S from "./Styles";
 import CardsImoveis from "../../components/CardsImoveis/CardsImoveis";
 import { PropertProps } from "../../services/Types";
+import { config } from "../Imoveis/utils/utils";
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState<PropertProps[]>([]);
@@ -18,7 +19,11 @@ const Favorites = () => {
         {favorites &&
           favorites.map((item) => (
             <Suspense fallback={<p>Carregando...</p>} key={item.id}>
-              <CardsImoveis flexdirection={"column"} item={item} />
+              <CardsImoveis
+                config={config}
+                flexdirection={"column"}
+                item={item}
+              />
             </Suspense>
           ))}
       </S.Box>

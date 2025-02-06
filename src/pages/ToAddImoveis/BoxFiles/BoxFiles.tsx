@@ -8,7 +8,7 @@ type PropsBoxFile = {
 const BoxFiles = ({ changeFile }: PropsBoxFile) => {
   return (
     <S.BoxFiles>
-      <label htmlFor="Imagens (Selecione até 4 imagens)">
+      <label htmlFor="Imagens (Selecione 4 imagens)">
         Imagens (Selecione 4 imagens)
       </label>
       <Input

@@ -48,6 +48,7 @@ const FavoritesContext = ({ children }: PropsWithChildren) => {
 
     // Atualiza o estado
     setFavorites(updatedFavorites);
+    toast.success("Imóvel salvo nos favoritos");
   };
 
   // Remover Imovel dos Favoritos...
@@ -65,6 +66,7 @@ const FavoritesContext = ({ children }: PropsWithChildren) => {
     // Atualiza o estado e o localStorage
     setFavorites(updatedFavorites);
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    toast.success("Imóvel removido dos favoritos");
   };
 
   return (

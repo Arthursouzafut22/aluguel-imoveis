@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { WhiteColor } from "../../../Styles/Colors";
 
 export const Section = styled.section`
-  background-color: rgba(0, 0, 0, 0.22);
+  background-color: rgba(0, 0, 0, 0.29);
   position: fixed;
   height: 100vh;
   transform: translate(-50%, -50%);
@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Modal = styled.div`
-  max-width: 400px;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,7 +25,7 @@ export const Modal = styled.div`
   gap: 0.63rem;
   margin: 0 auto;
   height: 200px;
-  border-radius: 0.50rem;
+  border-radius: 0.5rem;
   background-color: ${WhiteColor};
   position: absolute;
   width: 100%;
@@ -33,10 +33,12 @@ export const Modal = styled.div`
   left: 50%;
   right: 50%;
   top: 50%;
+  padding-inline: 15px;
 
   p {
-    font-size: 1.13rem;
-    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    color: #4b5563;
   }
 
   div {
@@ -55,6 +57,6 @@ export const Button = styled.button<{ color: string }>`
   cursor: pointer;
   border-radius: 0.5rem;
   display: block;
-  padding-block: 0.50rem;
-  padding-inline: 0.94rem;
+  padding-block: 0.5rem;
+  padding-inline: 0.98rem;
 `;
