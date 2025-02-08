@@ -11,7 +11,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
     "/profile",
     "/favorites",
     "/my-property",
-    "/search",
   ];
   const include = routes.includes(location.pathname);
 

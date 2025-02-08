@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { WhiteColor, PurpleColor } from "../../Styles/Colors";
+import { WhiteColor, PurpleColor, ButtonColor } from "../../Styles/Colors";
 import { flexItem, flex } from "../../Styles/flex";
 
 const styleButton = css`
@@ -136,6 +136,12 @@ export const Wrapper = styled.div<{ mobile: boolean; visible: boolean }>`
       border: none;
       border-radius: 0.5rem;
       width: ${({ mobile }) => (mobile ? "100%" : "initial")};
+      border: 2px solid #a795ff;
+
+      &:focus {
+        outline: 2px solid ${ButtonColor};
+        border: 2px solid transparent;
+      }
     }
 
     select {
@@ -144,8 +150,13 @@ export const Wrapper = styled.div<{ mobile: boolean; visible: boolean }>`
       border-radius: 0.5rem;
       cursor: pointer;
       border: none;
-      outline-color: #a795ff;
       width: ${({ mobile }) => (mobile ? "100%" : "initial")};
+      border: 2px solid #a795ff;
+
+      &:focus {
+        outline: 2px solid ${ButtonColor};
+        border: 2px solid transparent;
+      }
     }
 
     button {

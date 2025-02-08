@@ -11,25 +11,28 @@ import SearchProperty from "../pages/SearchProperty/SearchProperty";
 import MyProperty from "../pages/My-property/My-property";
 import Layout from "./Layout";
 import Edit from "../pages/Edit/Edit";
+import SearchContext from "../context/SearchPropertyContext/SearchPropertyContext";
 
 const Router = () => {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/imoveis" element={<Imoveis />} />
-          <Route path="/imoveis/:id" element={<ImovelInformation />} />
-          <Route path="/add" element={<ToAddImoveis />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/messages" element={<Messages />} />
-          <Route path="/search" element={<SearchProperty />} />
-          <Route path="/my-property" element={<MyProperty />} />
-          <Route path="/edit/:id" element={<Edit />} />
-        </Routes>
-      </Layout>
-      <Footer />
+      <SearchContext>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/imoveis" element={<Imoveis />} />
+            <Route path="/imoveis/:id" element={<ImovelInformation />} />
+            <Route path="/add" element={<ToAddImoveis />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/messages" element={<Messages />} />
+            <Route path="/search" element={<SearchProperty />} />
+            <Route path="/my-property" element={<MyProperty />} />
+            <Route path="/edit/:id" element={<Edit />} />
+          </Routes>
+        </Layout>
+        <Footer />
+      </SearchContext>
     </BrowserRouter>
   );
 };
