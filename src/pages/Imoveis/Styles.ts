@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Section = styled.section`
   padding: 1.25rem;
   margin: 40px auto auto auto;
+  height: 100%;
+  flex: 1;
 `;
 
 export const Box = styled.div`

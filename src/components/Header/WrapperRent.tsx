@@ -13,7 +13,7 @@ const WrapperRent = () => {
   const visible = !(
     location.pathname === "/imoveis" || location.pathname === "/search"
   );
-  const { register, handleSubmit } = useForm<FormSearchProps>();
+  const { register, handleSubmit, setValue } = useForm<FormSearchProps>();
   const { submitPropertySearch } = UseSearch();
 
   return (
@@ -25,7 +25,11 @@ const WrapperRent = () => {
             <p>Descubra o imóvel ideal para atender às suas necessidades.</p>
           </>
         )}
-        <form onSubmit={handleSubmit(submitPropertySearch)}>
+        <form
+          onSubmit={handleSubmit((values) =>
+            submitPropertySearch(values, setValue)
+          )}
+        >
           <Input
             type="text"
             placeholder="Digite Sua Pesquisa"

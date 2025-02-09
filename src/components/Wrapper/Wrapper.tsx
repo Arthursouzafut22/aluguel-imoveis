@@ -4,19 +4,22 @@ import { AuthProvider } from "../../context/LoginContext/ContexLogin";
 import Router from "../../routes/Routes";
 import { GlobalStyles } from "../../Styles/GlobalStyles";
 import Toast from "../Toast/Toast";
+import * as S from "../../Styles/GlobalStyles";
 
 const Wrapper = () => {
   return (
     <>
-      <AuthProvider>
-        <FavoritesContext>
-          <LayoutContext>
-            <Router />
-            <Toast />
-            <GlobalStyles />
-          </LayoutContext>
-        </FavoritesContext>
-      </AuthProvider>
+      <S.Container>
+        <AuthProvider>
+          <FavoritesContext>
+            <LayoutContext>
+              <Router />
+              <Toast />
+              <GlobalStyles />
+            </LayoutContext>
+          </FavoritesContext>
+        </AuthProvider>
+      </S.Container>
     </>
   );
 };

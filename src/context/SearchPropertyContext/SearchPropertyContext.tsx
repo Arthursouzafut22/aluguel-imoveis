@@ -4,6 +4,7 @@ import { PropertProps } from "../../services/Types";
 import { SearchProps } from "./types";
 import { FormSearchProps } from "../../components/Header/types";
 import { useNavigate } from "react-router-dom";
+import { UseFormSetValue } from "react-hook-form";
 
 const ContextSearch = createContext<SearchProps | null>(null);
 
@@ -14,26 +15,32 @@ export const UseSearch = () => {
 };
 
 const SearchContext = ({ children }: PropsWithChildren) => {
-  const [filterProperty, setFilterProperty] = useState<PropertProps[]>([]);
-  const [erros, setErros] = useState(false);
+  const [filterProperty, setFilterProperty] = useState([] as PropertProps[]);
+  const [erros, setErros] = useState("");
   const { data } = useQueryProperty("/");
   const navigate = useNavigate();
 
-  const submitPropertySearch = (values: FormSearchProps) => {
+  function submitPropertySearch(
+    values: FormSearchProps,
+    setValue: UseFormSetValue<FormSearchProps>
+  ) {
     const { name, type } = values;
-    if (!data) return;
+    if (!data) return null;
 
     if (name.length === 0 && type === "Todos") {
       navigate("/imoveis");
+      return;
     }
-
+    //Filtrar pelo nome...
     const filterName = data?.filter(
       ({ nome }) =>
         nome?.toLowerCase() === name?.toLowerCase() && type === "Todos"
     );
+    //Filtrar pelo tipo...
     const filterType = data?.filter(
       ({ tipo }) => tipo?.toLowerCase() === type?.toLowerCase()
     );
+    //Filtrar pelo nome e tipo...
     const filterTodo = data?.filter(
       ({ nome, tipo }) =>
         nome.toLowerCase() === name.toLowerCase() &&
@@ -42,30 +49,36 @@ const SearchContext = ({ children }: PropsWithChildren) => {
 
     if (filterName.length > 0) {
       setFilterProperty(filterName);
-      setErros(false);
+      setErros("");
+      navigate("/search");
       return;
     }
 
     if (name.length === 0) {
       setFilterProperty(filterType);
-      setErros(false);
+      setErros("");
+      navigate("/search");
       return;
     }
 
     if (filterTodo.length > 0) {
       setFilterProperty(filterTodo);
-      setErros(false);
+      setErros("");
+      navigate("/search");
       return;
     }
     navigate("/search");
     notFound(name, type);
-  };
+    setValue("name", "");
+  }
 
   function notFound(name: string, type: string) {
+    // Filtrar por nomes que não existe...
     const filterName = data?.filter(
       ({ nome }) =>
         nome?.toLowerCase() !== name?.toLowerCase() && type === "Todos"
     );
+    // Filtrar por nomes e tipo que não existe...
     const filterTodo = data?.filter(
       ({ nome, tipo }) =>
         nome.toLowerCase() !== name.toLowerCase() &&
@@ -74,12 +87,12 @@ const SearchContext = ({ children }: PropsWithChildren) => {
 
     if (filterName) {
       setFilterProperty([]);
-      setErros(true);
+      setErros("Nenhum resultado encontrado");
       return;
     }
     if (filterTodo) {
       setFilterProperty([]);
-      setErros(true);
+      setErros("Nenhum resultado encontrado");
       return;
     }
   }

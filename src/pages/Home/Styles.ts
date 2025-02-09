@@ -16,11 +16,13 @@ export const ContainerCards = styled.div<{ mobile: boolean }>`
 export const CardsItems = styled.div<{ background?: string; mobile: boolean }>`
   padding: 1.13rem;
   border-radius: 0.5rem;
-  /* box-shadow: 2px 5px 10px -1px rgba(204, 204, 204, 0.21); */
-  /* box-shadow: 2px 5px 10px 1px rgba(204, 204, 204, 0.21); */
   box-shadow: 2px 5px 11px 0px rgba(204, 204, 204, 0.21);
   background-color: ${({ background }) => background};
   flex: ${({ mobile }) => (mobile ? "initial" : "1")};
+
+  h2 {
+    line-height: 32px;
+  }
 
   p {
     line-height: 20px;

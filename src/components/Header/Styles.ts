@@ -167,6 +167,7 @@ export const Wrapper = styled.div<{ mobile: boolean; visible: boolean }>`
       padding: 0.5rem;
       cursor: pointer;
       background-color: #a795ff;
+      outline-color: ${WhiteColor};
       width: ${({ mobile }) => (mobile ? "100%" : "initial")};
     }
   }

@@ -3,7 +3,10 @@ import * as S from "./Styles";
 const Messages = () => {
   return (
     <S.Section>
-      <h1>Nada ainda...</h1>
+      <S.Box>
+        <h1>Suas Mensagens</h1>
+        <p>Você não possui nenhuma mensagem</p>
+      </S.Box>
     </S.Section>
   );
 };

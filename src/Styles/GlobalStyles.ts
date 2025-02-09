@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -25,5 +26,10 @@ export const GlobalStyles = createGlobalStyle`
     list-style: none;
     padding: 0;
  }
+`;
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 `;

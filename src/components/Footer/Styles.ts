@@ -5,13 +5,13 @@ export const Footer = styled.footer`
   padding: 1.25rem;
   background-color: #e5e7eb;
   margin: 40px auto auto auto;
+  width: 100%;
 `;
 
 export const Box = styled.div<{ mobile: boolean }>`
   ${flex("center", "space-between")};
   flex-wrap: wrap;
   max-width: 1220px;
-  /* flex-wrap: ${({ mobile }) => mobile && "wrap"} !important; */
   flex-direction: ${({ mobile }) => (mobile ? "column" : "row")};
   margin: 0 auto;
 

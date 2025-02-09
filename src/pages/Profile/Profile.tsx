@@ -17,9 +17,7 @@ const Profile = () => {
       <S.Box>
         <h1>Seu perfil</h1>
         <div className="wrapper">
-          {user?.photoURL && (
-            <img src={user.photoURL} alt="imagem-user" />
-          )}
+          {user?.photoURL && <img src={user.photoURL} alt="imagem-user" />}
           <div>
             <span>Nome:</span>
             <p>{user?.displayName}</p>

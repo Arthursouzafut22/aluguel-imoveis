@@ -5,7 +5,8 @@ import { flexItem } from "../../Styles/flex";
 export const Section = styled.section`
   padding: 1.25rem;
   margin: 20px auto auto auto;
-  height: 100vh;
+  width: 100%;
+  flex: 1;
 
   h1 {
     text-align: center;
@@ -47,7 +48,7 @@ export const CardMyProperty = styled.div`
 
 export const Wrapper = styled.div`
   padding-inline: 0.94rem;
-  padding-block: 0.50rem 0.94rem;
+  padding-block: 0.5rem 0.94rem;
 
   p:first-child {
     font-size: 1.13rem;
@@ -64,7 +65,7 @@ export const Wrapper = styled.div`
 
 export const BoxButtons = styled.div`
   ${flexItem};
-  gap:  0.38rem;
+  gap: 0.38rem;
   margin-top: 8px;
 `;
 
@@ -76,6 +77,6 @@ export const Button = styled.button<{ background: string }>`
   cursor: pointer;
   border-radius: 0.5rem;
   display: block;
-  padding-block: 0.50rem;
+  padding-block: 0.5rem;
   padding-inline: 0.75rem;
 `;

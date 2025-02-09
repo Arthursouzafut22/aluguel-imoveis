@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Section = styled.section`
   padding: 1.25rem;
   margin: 20px auto auto auto;
-  height: 100vh;
+  flex: 1;
+  width: 100%;
 
   h1 {
     text-align: center;
@@ -17,7 +18,7 @@ export const Box = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
   max-width: 1220px;
   margin: 0 auto;
 

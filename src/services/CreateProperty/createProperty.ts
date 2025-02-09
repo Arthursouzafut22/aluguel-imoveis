@@ -19,7 +19,7 @@ export const createProperty = async (file: File[], data: AddImoveisProps) => {
     if (response.ok) {
       console.log("Enviado com sucesso");
     }
-    console.log(data);
+    return data;
   } catch (error) {
     console.error("Error em criar imoveis !", error);
   }

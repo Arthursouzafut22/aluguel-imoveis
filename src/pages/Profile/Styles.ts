@@ -6,6 +6,8 @@ export const Section = styled.section`
   margin: 40px auto auto auto;
   height: 70vh;
   padding: 1.25rem;
+  width: 100%;
+  flex: 1;
 
   h1 {
     text-align: center;

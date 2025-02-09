@@ -13,7 +13,7 @@ export type PropertProps = {
   descricao: string;
   comodidades: string[];
   rua?: string;
-  numero?: string | number;
+  numero?: string;
   bairro?: string;
   estado?: string;
   cidade?: string;
