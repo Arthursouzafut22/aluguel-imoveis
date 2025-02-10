@@ -23,3 +23,10 @@ export type PropertProps = {
   ["celular_proprietario"]?: string;
   save: boolean;
 };
+
+export type PropertyPropsPages = {
+  currentPage: number;
+  totalPages: number;
+  totalImoveis: number;
+  imoveis: PropertProps[];
+};

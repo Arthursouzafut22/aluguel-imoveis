@@ -19,7 +19,7 @@ const ImovelInformation = () => {
   const { setId } = UseLayout();
   const { mobile } = useMedia("(max-width:1024px)");
   const { id } = useParams();
-  const { data } = useQueryProperty("/");
+  const { data } = useQueryProperty<PropertProps[]>("/");
   const searchProperty = data?.find((i) => i.id === Number(id));
   const { addPropertyToFavorites, deletePropertyToFavorites } = UseFavorites();
   const { user } = UseAuth();

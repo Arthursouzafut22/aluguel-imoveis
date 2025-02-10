@@ -4,9 +4,10 @@ import CardsImoveis from "../CardsImoveis/CardsImoveis";
 import useMedia from "../../Hooks/UseMedia";
 import { Suspense } from "react";
 import { config } from "./utils/utils";
+import { PropertProps } from "../../services/Types";
 
 const ImoveisHighlights: React.FC = () => {
-  const { data } = useQueryProperty("/destaques");
+  const { data } = useQueryProperty<PropertProps[]>("/destaques");
   const { mobile } = useMedia("(max-width:1273px)");
 
   return (

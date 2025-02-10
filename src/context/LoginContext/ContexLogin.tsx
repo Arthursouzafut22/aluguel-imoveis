@@ -1,15 +1,5 @@
-import React, {
-  createContext,
-  PropsWithChildren,
-  useContext,
-  useState,
-} from "react";
-import { FirebaseUser } from "./Types";
-
-type AuthContextType = {
-  user: FirebaseUser | null;
-  setUser: React.Dispatch<React.SetStateAction<FirebaseUser | null>>;
-};
+import { createContext, PropsWithChildren, useContext, useState } from "react";
+import { AuthContextType, FirebaseUser } from "./Types";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 

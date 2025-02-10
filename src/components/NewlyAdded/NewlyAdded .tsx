@@ -4,9 +4,10 @@ import { Suspense } from "react";
 import CardsImoveis from "../CardsImoveis/CardsImoveis";
 import useMedia from "../../Hooks/UseMedia";
 import { config } from "./utils/utils";
+import { PropertProps } from "../../services/Types";
 
 const NewlyAdded = () => {
-  const { data } = useQueryProperty("/newly");
+  const { data } = useQueryProperty<PropertProps[]>("/newly");
   const { mobile } = useMedia("(max-width:993px)");
 
   return (
