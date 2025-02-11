@@ -15,10 +15,15 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Spinner from "../../../components/Spinner/Spinner";
 import { sylesSpinner } from "../../ToAddImoveis/Utils/utils";
+import { PropertProps } from "../../../services/Types";
+import { UseAuth } from "../../../context/LoginContext/ContexLogin";
 
 const FormEdit = ({ id }: { id: string | undefined }) => {
   const { register, handleSubmit, setValue } = useForm<AddImoveisProps>({});
-  const { data } = useQueryProperty("/my-property");
+  const { user } = UseAuth();
+  const { data } = useQueryProperty<PropertProps[]>(
+    `/my-property/${user?.uid as string}`
+  );
   const [dados, setDados] = useState(data);
   const searchId = dados?.find((item) => item.id === Number(id));
   const navigate = useNavigate();

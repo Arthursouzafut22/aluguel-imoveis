@@ -5,14 +5,16 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./Schema/Schema";
 import { FormProps } from "./types";
+import createInterest from "../../../services/CreateInterest/createInterest";
 
-const FormProprietary = () => {
+const FormProprietary = ({ id }: { id: string }) => {
   const { register, handleSubmit } = useForm<FormProps>({
     resolver: yupResolver(schema),
   });
 
-  const onSumit = (data: FormProps) => {
-    console.log(data);
+  const onSumit = async (data: FormProps) => {
+    const newData = { imovel_id: id as string, ...data };
+    await createInterest(newData);
   };
 
   return (

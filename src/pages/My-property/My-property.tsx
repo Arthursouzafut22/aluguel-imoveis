@@ -4,9 +4,14 @@ import * as S from "./Styles";
 import Spinner from "../../components/Spinner/Spinner";
 import { sylesSpinner } from "./utils/utils";
 import CardMyProperty from "./CardMyProperty";
+import { UseAuth } from "../../context/LoginContext/ContexLogin";
+import { PropertProps } from "../../services/Types";
 
 const MyProperty = () => {
-  const { data } = useQueryProperty("/my-property");
+  const { user } = UseAuth();
+  const { data } = useQueryProperty<PropertProps[]>(
+    `/my-property/${user?.uid}`
+  );
   const [dados, setDados] = useState(data);
 
   useEffect(() => {

@@ -19,6 +19,8 @@ export const Box = styled.div`
   gap: 0.75rem;
   border-radius: 0.5rem;
   box-shadow: 2px 5px 11px -1px rgba(204, 204, 204, 0.61);
+  display: flex;
+  flex-direction: column;
 
   h1 {
     text-align: center;
@@ -29,5 +31,62 @@ export const Box = styled.div`
 
   p {
     text-align: center;
+  }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  span {
+    display: block;
+    color: ${WhiteColor};
+    background-color: #eab308;
+    padding: 5px;
+    border-radius: 8px;
+  }
+`;
+
+export const CardMessages = styled.div`
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  box-shadow: 2px 5px 11px -1px rgba(204, 204, 204, 0.61);
+  p {
+    text-align: left;
+
+    strong {
+      font-size: 18px;
+    }
+  }
+`;
+
+export const BoxButtons = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+
+  @media screen and (max-width: 430px) {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+`;
+
+export const Button = styled.div<{ color: string }>`
+  display: block;
+  cursor: pointer;
+  font-size: 1rem;
+  padding-block: 0.25rem;
+  padding-inline: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: ${({ color }) => color};
+  color: ${WhiteColor};
+
+  @media screen and (max-width: 430px) {
+    text-align: center;
+    width: 100%;
   }
 `;

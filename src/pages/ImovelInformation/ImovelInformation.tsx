@@ -66,12 +66,12 @@ const ImovelInformation = () => {
             </S.ContainerComodidades>
           </S.WrapperOne>
           <S.WrapperTwo mobile={mobile}>
-            {isSaved ? (
+            {user && isSaved ? (
               <button
                 style={{ background: "#EF4444" }}
                 onClick={() => {
                   deletePropertyToFavorites(searchProperty);
-                  setIsSaved(false);
+                  setIsSaved(user ? false : true);
                 }}
               >
                 <BsBookmarkHeartFill />
@@ -91,7 +91,7 @@ const ImovelInformation = () => {
 
             <S.CardOwner>
               {user ? (
-                <FormProprietary />
+                <FormProprietary id={id as string} />
               ) : (
                 <>
                   <h3>Fale com o proprietário</h3>

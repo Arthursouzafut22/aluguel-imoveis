@@ -17,9 +17,11 @@ import { sylesSpinner } from "./Utils/utils";
 import { toast } from "react-toastify";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./Schema/Schema";
+import { UseAuth } from "../../context/LoginContext/ContexLogin";
 
 const ToAddImoveis = () => {
   const [file, setFile] = useState<File[]>([]);
+  const { user } = UseAuth();
   const { register, handleSubmit } = useForm<AddImoveisProps>({
     resolver: yupResolver(schema),
   });
@@ -31,7 +33,7 @@ const ToAddImoveis = () => {
     if (file.length < 4) return alert("Selecione exatamente 4 imagems");
 
     setStatus(true);
-    await createProperty(file, dataValues);
+    await createProperty(file, dataValues, user?.uid as string);
     setStatus(false);
     navigate("/my-property");
     toast.success(`Imóvel Adicionado Com Sucesso.`);

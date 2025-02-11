@@ -25,76 +25,97 @@ export const Header = styled.header<{ mobile: boolean }>`
       margin: 0 auto;
     }
   }
+`;
 
-  nav {
-    max-width: 1220px;
-    ${flexItem}
-    justify-content: space-between;
-    flex-direction: ${({ mobile }) => (mobile ? "column" : "row")};
-    gap: ${({ mobile }) => mobile && " 0.63rem"};
-    background-color: ${({ mobile }) => mobile && "#a795ff"};
-    padding-block: ${({ mobile }) => mobile && " 0.63rem"};
-    margin: ${({ mobile }) => (mobile ? "10px 0 0 0" : "0 auto")};
-    border-radius: 0.5rem;
+export const Nav = styled.nav<{ mobile: boolean }>`
+  max-width: 1220px;
+  ${flexItem}
+  justify-content: space-between;
+  flex-direction: ${({ mobile }) => (mobile ? "column" : "row")};
+  gap: ${({ mobile }) => mobile && " 0.63rem"};
+  background-color: ${({ mobile }) => mobile && "#a795ff"};
+  padding-block: ${({ mobile }) => mobile && " 0.63rem"};
+  margin: ${({ mobile }) => (mobile ? "10px 0 0 0" : "0 auto")};
+  border-radius: 0.5rem;
 
-    .container-1 {
-      ${flexItem};
-      flex-direction: ${({ mobile }) => (mobile ? "column" : "row")};
-      gap: ${({ mobile }) => (mobile ? "0.63rem" : "1.25rem")};
+  .wrapper-modal {
+    position: relative;
+  }
+`;
 
-      .active {
-        background-color: black;
-        padding-block: 0.5rem;
-        padding-inline: 0.75rem;
-        border-radius: 0.38rem;
-      }
+export const containerOne = styled.div<{ mobile: boolean }>`
+  ${flexItem};
+  flex-direction: ${({ mobile }) => (mobile ? "column" : "row")};
+  gap: ${({ mobile }) => (mobile ? "0.63rem" : "1.25rem")};
 
-      .wrapper-link {
-        ${flexItem};
-        gap: 0.5rem;
-        display: ${({ mobile }) => (mobile ? "none" : "flex")};
+  .active {
+    background-color: black;
+    padding-block: 0.5rem;
+    padding-inline: 0.75rem;
+    border-radius: 0.38rem;
+  }
 
-        span {
-          font-size: 1.5rem;
-          font-weight: 700;
-          color: ${WhiteColor};
-        }
-      }
+  .wrapper-link {
+    ${flexItem};
+    gap: 0.5rem;
+    display: ${({ mobile }) => (mobile ? "none" : "flex")};
 
-      img {
-        display: block;
-        max-width: 40px;
-      }
-
-      a {
-        font-size: ${({ mobile }) => (mobile ? "14px" : "1rem")};
-        color: ${WhiteColor};
-      }
+    span {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: ${WhiteColor};
     }
+  }
 
-    .container-2 {
-      ${flexItem};
-      gap: 0.38rem;
+  img {
+    display: block;
+    max-width: 40px;
+  }
 
-      a {
-        background-color: rgba(0, 0, 0, 0.43);
-        ${styleButton};
-      }
+  a {
+    font-size: ${({ mobile }) => (mobile ? "14px" : "1rem")};
+    color: ${WhiteColor};
+  }
+`;
 
-      .btn-user {
-        ${styleButton};
-        border: none;
-        background-color: #78919c;
+export const containerTwo = styled.div`
+  ${flexItem};
+  gap: 0.38rem;
 
-        img {
-          display: block;
-          max-width: 100%;
-          border-radius: 50%;
-        }
-      }
+  a {
+    background-color: rgba(0, 0, 0, 0.43);
+    ${styleButton};
+  }
+
+  .msn {
+    position: relative;
+
+    .quanty-msn {
+      font-size:  0.81rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: absolute;
+      background-color: red;
+      color: ${WhiteColor};
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      top: -8px;
+      right: 0;
     }
-    .wrapper-modal {
-      position: relative;
+  }
+
+  .btn-user {
+    ${styleButton};
+    border: none;
+    background-color: #78919c;
+
+    img {
+      display: block;
+      max-width: 100%;
+      border-radius: 50%;
     }
   }
 `;

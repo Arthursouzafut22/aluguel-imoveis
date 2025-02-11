@@ -5,18 +5,25 @@ import { FaRegBell } from "react-icons/fa";
 import { UseAuth } from "../../context/LoginContext/ContexLogin";
 import ModalUser from "./ModalUser/ModalUser";
 import React, { useCallback } from "react";
+import { useQueryProperty } from "../../services/PropertyService/propertyService";
+import { MenssagesProps } from "../../pages/Messages/types";
+import * as S from "../Header/Styles";
+import useMedia from "../../Hooks/UseMedia";
 
 const Nav = () => {
   const { user } = UseAuth();
   const [activeModal, setActiveModal] = React.useState<boolean>(false);
+  const { mobile } = useMedia("(max-width:767px)");
+  const { data } = useQueryProperty<MenssagesProps[]>("/interesse");
+  if (!data) throw new Error("Erro em data !");
 
   const closeModal = useCallback(() => {
     setActiveModal(false);
   }, []);
 
   return (
-    <nav>
-      <div className="container-1">
+    <S.Nav mobile={mobile}>
+      <S.containerOne mobile={mobile}>
         <Link to={"/"} className="wrapper-link">
           <img src={Logo} alt="Logo" />
           <span>PropertyPulse</span>
@@ -42,11 +49,14 @@ const Nav = () => {
             Adicionar imóveis
           </NavLink>
         )}
-      </div>
-      <div className="container-2">
+      </S.containerOne>
+      <S.containerTwo>
         {user && (
-          <Link to={"/messages"}>
+          <Link to={"/messages"} className={"msn"}>
             <FaRegBell />
+            {data.length > 0 ? (
+              <span className={"quanty-msn"}>{data.length}</span>
+            ) : null}
           </Link>
         )}
         {user && (
@@ -61,8 +71,8 @@ const Nav = () => {
           </div>
         )}
         {!user && <Login />}
-      </div>
-    </nav>
+      </S.containerTwo>
+    </S.Nav>
   );
 };
 
