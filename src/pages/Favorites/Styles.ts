@@ -12,6 +12,10 @@ export const Section = styled.section`
     font-weight: 700;
     margin-bottom: 15px;
   }
+
+  p {
+    text-align: center;
+  }
 `;
 
 export const Box = styled.div`

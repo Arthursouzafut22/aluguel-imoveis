@@ -13,10 +13,9 @@ import { useQueryProperty } from "../../../services/PropertyService/propertyServ
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Spinner from "../../../components/Spinner/Spinner";
-import { sylesSpinner } from "../../ToAddImoveis/Utils/utils";
 import { PropertProps } from "../../../services/Types";
 import { UseAuth } from "../../../context/LoginContext/ContexLogin";
+import Button from "../../../components/Button/Button";
 
 const FormEdit = ({ id }: { id: string | undefined }) => {
   const { register, handleSubmit, setValue } = useForm<AddImoveisProps>({});
@@ -75,9 +74,7 @@ const FormEdit = ({ id }: { id: string | undefined }) => {
       <BoxPayment register={register} />
       <BoxOwner register={register} />
 
-      <S.Button>
-        {status ? <Spinner config={sylesSpinner} /> : "Atualizar Imóvel"}
-      </S.Button>
+      <Button text={"Atualizar Imóvel"} status={status} />
     </S.Form>
   );
 };

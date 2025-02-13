@@ -11,5 +11,8 @@ const propertyService = async <T>(endPoint: string): Promise<T> => {
 export const useQueryProperty = <T>(endPoint: string) => {
   return useQuery<T>(["property", endPoint], () => propertyService(endPoint), {
     suspense: true,
+    onError: (error) => {
+      console.error("Erro na requisição:", error);
+    },
   });
 };

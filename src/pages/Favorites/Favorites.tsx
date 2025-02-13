@@ -15,18 +15,22 @@ const Favorites = () => {
   return (
     <S.Section>
       <h1>Imóveis favoritos</h1>
-      <S.Box>
-        {favorites &&
-          favorites.map((item) => (
-            <Suspense fallback={<p>Carregando...</p>} key={item.id}>
-              <CardsImoveis
-                config={config}
-                flexdirection={"column"}
-                item={item}
-              />
-            </Suspense>
-          ))}
-      </S.Box>
+      {favorites.length === 0 ? (
+        <p>Você não tem imoveis favoritados.</p>
+      ) : (
+        <S.Box>
+          {favorites &&
+            favorites.map((item) => (
+              <Suspense fallback={<p>Carregando...</p>} key={item.id}>
+                <CardsImoveis
+                  config={config}
+                  flexdirection={"column"}
+                  item={item}
+                />
+              </Suspense>
+            ))}
+        </S.Box>
+      )}
     </S.Section>
   );
 };

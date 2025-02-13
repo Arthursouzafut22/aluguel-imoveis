@@ -14,7 +14,9 @@ const Nav = () => {
   const { user } = UseAuth();
   const [activeModal, setActiveModal] = React.useState<boolean>(false);
   const { mobile } = useMedia("(max-width:767px)");
-  const { data } = useQueryProperty<MenssagesProps[]>("/interesse");
+  const { data } = useQueryProperty<MenssagesProps[]>(
+    `/messages/${user?.uid as string}`
+  );
   if (!data) throw new Error("Erro em data !");
 
   const closeModal = useCallback(() => {

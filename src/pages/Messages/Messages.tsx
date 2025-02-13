@@ -6,14 +6,15 @@ import { MenssagesProps } from "./types";
 
 const Messages = () => {
   const { user } = UseAuth();
-  const { data } = useQueryProperty<MenssagesProps[]>(`/interesse`);
-  if (!data) return <p>Nenhuma mensagem encontrada.</p>;
+  const uid = user?.uid as string;
+  const { data } = useQueryProperty<MenssagesProps[]>(`/messages/${uid}`);
+
   return (
     <S.Section>
       <S.Box>
         <h1>Suas Mensagens</h1>
 
-        {data?.length < 0 ? (
+        {data?.length === 0 ? (
           <p>Você não possui nenhuma mensagem</p>
         ) : (
           data &&

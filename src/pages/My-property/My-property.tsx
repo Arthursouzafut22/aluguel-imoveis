@@ -22,15 +22,18 @@ const MyProperty = () => {
   return (
     <S.Section>
       <h1>Meus Imóveis</h1>
-
-      <Suspense fallback={<Spinner config={sylesSpinner} />}>
-        <S.Box>
-          {dados &&
-            dados.map((item) => (
-              <CardMyProperty key={item.id} item={item} setDados={setDados} />
-            ))}
-        </S.Box>
-      </Suspense>
+      {dados?.length === 0 ? (
+        <p>Você não tem imoveis cadastrados.</p>
+      ) : (
+        <Suspense fallback={<Spinner config={sylesSpinner} />}>
+          <S.Box>
+            {dados &&
+              dados.map((item) => (
+                <CardMyProperty key={item.id} item={item} setDados={setDados} />
+              ))}
+          </S.Box>
+        </Suspense>
+      )}
     </S.Section>
   );
 };

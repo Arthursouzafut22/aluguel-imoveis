@@ -16,7 +16,7 @@ export const Form = styled.form`
   max-width: 670px;
   margin: 0 auto;
   padding: 1.56rem;
-  background-color: #ffffff;
+  background-color: ${WhiteColor};
   border-radius: 0.5rem;
   box-shadow: 2px 5px 11px -1px rgba(204, 204, 204, 0.61);
 
@@ -184,26 +184,5 @@ export const BoxFiles = styled.div`
   label {
     font-weight: 700;
     margin-bottom: 8px;
-  }
-`;
-
-export const Button = styled.button`
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: 700;
-  width: 100%;
-  padding-block: 0.5rem;
-  cursor: pointer;
-  border-radius: 0.5rem;
-  border: none;
-  background-color: ${ButtonColor};
-  color: ${WhiteColor};
-  margin-top: 15px;
-  transition: 0.3s;
-
-  &:hover {
-    background-color: #7c5dfa;
   }
 `;

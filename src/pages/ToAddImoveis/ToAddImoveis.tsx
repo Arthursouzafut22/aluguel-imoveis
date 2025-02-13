@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { createProperty } from "../../services/CreateProperty/createProperty";
 import { AddImoveisProps } from "./types";
-import Spinner from "../../components/Spinner/Spinner";
 import BoxInputs from "./BoxInputs/BoxInputs";
 import BoxArea from "./BoxArea/BoxArea";
 import BoxCep from "./BoxCep/BoxCep";
@@ -13,11 +12,11 @@ import BoxPayment from "./BoxPayment/BoxPayment";
 import BoxOwner from "./BoxOwner/BoxOwner";
 import BoxFiles from "./BoxFiles/BoxFiles";
 import { useNavigate } from "react-router-dom";
-import { sylesSpinner } from "./Utils/utils";
 import { toast } from "react-toastify";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./Schema/Schema";
 import { UseAuth } from "../../context/LoginContext/ContexLogin";
+import Button from "../../components/Button/Button";
 
 const ToAddImoveis = () => {
   const [file, setFile] = useState<File[]>([]);
@@ -68,9 +67,7 @@ const ToAddImoveis = () => {
           <BoxOwner register={register} />
           <BoxFiles changeFile={changeFile} />
 
-          <S.Button>
-            {status ? <Spinner config={sylesSpinner} /> : "Adicionar Imóvel"}
-          </S.Button>
+          <Button text={"Adicionar Imóvel"} status={status} />
         </S.Form>
       </S.Box>
     </S.Section>

@@ -6,15 +6,26 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./Schema/Schema";
 import { FormProps } from "./types";
 import createInterest from "../../../services/CreateInterest/createInterest";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 const FormProprietary = ({ id }: { id: string }) => {
-  const { register, handleSubmit } = useForm<FormProps>({
+  const [status, setStatus] = useState<boolean>(false);
+  const { register, handleSubmit, setValue } = useForm<FormProps>({
     resolver: yupResolver(schema),
   });
 
   const onSumit = async (data: FormProps) => {
     const newData = { imovel_id: id as string, ...data };
+    setStatus(true);
     await createInterest(newData);
+    setStatus(false);
+
+    setValue("nome", "");
+    setValue("email", "");
+    setValue("celular", "");
+    setValue("mensagem", "");
+    toast.success(`Mensagem enviada com sucesso!`);
   };
 
   return (
@@ -50,8 +61,14 @@ const FormProprietary = ({ id }: { id: string }) => {
         ></textarea>
       </div>
       <button>
-        <FaPaperPlane />
-        Enviar Mensagem
+        {status ? (
+          "Enviado..."
+        ) : (
+          <>
+            <FaPaperPlane />
+            Enviar Mensagem
+          </>
+        )}
       </button>
     </S.Form>
   );
