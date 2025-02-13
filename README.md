@@ -25,7 +25,8 @@ PropertyPulse é uma plataforma inovadora para cadastro e aluguel de imóveis, o
 ✔ Cadastro e gerenciamento de imóveis.                           
 ✔ Sistema de aluguel de imóveis.                        
 ✔ Autenticação de usuários via Google.            
-✔ Paginação para melhor desempenho e usabilidade.                           
+✔ Paginação para melhor desempenho e usabilidade.                         
+✔ Envio de mensagens para o anunciante do imóvel.                     
 
 ## Autor
 @Arthursouza
