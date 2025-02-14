@@ -32,7 +32,8 @@ const FavoritesContext = ({ children }: PropsWithChildren) => {
 
     // Verifica se o imóvel já está salvo
     const alreadySaved = storedFavorites.some(
-      (fav: PropertProps) => fav.id === Number(id)
+      (fav: PropertProps & { uid: string }) =>
+        fav.id === Number(id) && fav.uid === user.uid
     );
 
     if (alreadySaved) {
@@ -42,7 +43,7 @@ const FavoritesContext = ({ children }: PropsWithChildren) => {
     // Adiciona o novo imóvel e atualiza o localStorage
     const updatedFavorites = [
       ...storedFavorites,
-      { ...propertyTo, save: true },
+      { ...propertyTo, save: true, uid: user.uid },
     ];
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
 

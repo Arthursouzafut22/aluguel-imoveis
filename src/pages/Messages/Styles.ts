@@ -43,21 +43,21 @@ export const Wrapper = styled.div`
     display: block;
     color: ${WhiteColor};
     background-color: #eab308;
-    padding: 5px;
-    border-radius: 8px;
+    padding: 0.31rem;
+    border-radius: 0.5rem;
   }
 `;
 
 export const CardMessages = styled.div`
   width: 100%;
-  padding: 14px;
-  border-radius: 8px;
+  padding: 0.88rem;
+  border-radius: 0.5rem;
   box-shadow: 2px 5px 11px -1px rgba(204, 204, 204, 0.61);
   p {
     text-align: left;
 
     strong {
-      font-size: 18px;
+      font-size: 1.13rem;
     }
   }
 `;
@@ -65,12 +65,12 @@ export const CardMessages = styled.div`
 export const BoxButtons = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.63rem;
   margin-top: 10px;
 
   @media screen and (max-width: 430px) {
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 0.38rem;
   }
 `;
 

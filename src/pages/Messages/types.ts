@@ -6,4 +6,5 @@ export type MenssagesProps = {
   celular: string;
   mensagem: string;
   data_interesse: string;
+  lida:boolean
 };

@@ -23,7 +23,7 @@ const MyProperty = () => {
     <S.Section>
       <h1>Meus Imóveis</h1>
       {dados?.length === 0 ? (
-        <p>Você não tem imoveis cadastrados.</p>
+        <p style={{ textAlign: "center" }}>Você não tem imoveis cadastrados.</p>
       ) : (
         <Suspense fallback={<Spinner config={sylesSpinner} />}>
           <S.Box>

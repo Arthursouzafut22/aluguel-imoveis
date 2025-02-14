@@ -22,6 +22,7 @@ export type PropertProps = {
   email?: string;
   ["celular_proprietario"]?: string;
   save: boolean;
+  uid?: string;
 };
 
 export type PropertyPropsPages = {
