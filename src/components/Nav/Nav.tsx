@@ -5,19 +5,16 @@ import { FaRegBell } from "react-icons/fa";
 import { UseAuth } from "../../context/LoginContext/ContexLogin";
 import ModalUser from "./ModalUser/ModalUser";
 import React, { useCallback } from "react";
-import { useQueryProperty } from "../../services/PropertyService/propertyService";
-import { MenssagesProps } from "../../pages/Messages/types";
 import * as S from "../Header/Styles";
 import useMedia from "../../Hooks/UseMedia";
+import { UseLayout } from "../../context/LayoutContext/ContextLayout";
+import { SetActiveProps } from "../Login/types";
 
-const Nav = () => {
+const Nav = ({ setMenuActive }: SetActiveProps) => {
   const { user } = UseAuth();
   const [activeModal, setActiveModal] = React.useState<boolean>(false);
   const { mobile } = useMedia("(max-width:767px)");
-  const { data } = useQueryProperty<MenssagesProps[]>(
-    `/messages/${user?.uid as string}`
-  );
-  if (!data) throw new Error("Erro em data !");
+  const { dados } = UseLayout();
 
   const closeModal = useCallback(() => {
     setActiveModal(false);
@@ -32,12 +29,14 @@ const Nav = () => {
         </Link>
         <NavLink
           to={"/"}
+          onClick={() => setActiveModal(false)}
           className={({ isActive }) => (isActive ? "active" : "no-active")}
           end
         >
           Início
         </NavLink>
         <NavLink
+          onClick={() => setActiveModal(false)}
           to={"/imoveis"}
           className={({ isActive }) => (isActive ? "active" : "no-active")}
         >
@@ -45,6 +44,7 @@ const Nav = () => {
         </NavLink>
         {user && (
           <NavLink
+            onClick={() => setActiveModal(false)}
             to={"/add"}
             className={({ isActive }) => (isActive ? "active" : "no-active")}
           >
@@ -54,10 +54,14 @@ const Nav = () => {
       </S.containerOne>
       <S.containerTwo>
         {user && (
-          <Link to={"/messages"} className={"msn"}>
+          <Link
+            onClick={() => setActiveModal(false)}
+            to={"/messages"}
+            className={"msn"}
+          >
             <FaRegBell />
-            {data.length > 0 ? (
-              <span className={"quanty-msn"}>{data.length}</span>
+            {dados && dados.length > 0 ? (
+              <span className={"quanty-msn"}>{dados?.length}</span>
             ) : null}
           </Link>
         )}
@@ -72,7 +76,7 @@ const Nav = () => {
             {activeModal && <ModalUser closeModal={closeModal} />}
           </div>
         )}
-        {!user && <Login />}
+        {!user && <Login setMenuActive={setMenuActive} />}
       </S.containerTwo>
     </S.Nav>
   );

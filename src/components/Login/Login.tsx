@@ -3,8 +3,9 @@ import { auth } from "../../../Firebase/firebaseConfig";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { UseAuth } from "../../context/LoginContext/ContexLogin";
 import { FaGoogle } from "react-icons/fa";
+import { SetActiveProps } from "./types";
 
-const Login = () => {
+const Login = ({ setMenuActive }: SetActiveProps) => {
   const { setUser } = UseAuth();
 
   const handleGoogleLogin = async () => {
@@ -15,6 +16,7 @@ const Login = () => {
       const user = result.user;
       setUser(user);
       localStorage.setItem("user", JSON.stringify(user));
+      setMenuActive(false);
     } catch (error) {
       console.error("Erro ao fazer login:", error);
     }

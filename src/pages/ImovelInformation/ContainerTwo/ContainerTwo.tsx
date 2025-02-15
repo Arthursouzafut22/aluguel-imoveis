@@ -28,7 +28,7 @@ const ContainerTwo = ({ searchProperty }: ContainerProps) => {
           <span>m²</span>
         </div>
       </S.BoxPrices>
-      <p>{searchProperty?.descricao}</p>
+      <p style={{ wordWrap: "break-word" }}>{searchProperty?.descricao}</p>
     </S.ContainerTwo>
   );
 };

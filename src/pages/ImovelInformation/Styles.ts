@@ -21,6 +21,7 @@ export const WrapperOne = styled.div<{ mobile: boolean }>`
   ${flexColumns("initial", "start")}
   max-width: ${({ mobile }) => (mobile ? "100%" : "800px")};
   gap: 0.88rem;
+  width: 100%;
 `;
 
 export const ContainerOne = styled.div<{ mobile: boolean }>`

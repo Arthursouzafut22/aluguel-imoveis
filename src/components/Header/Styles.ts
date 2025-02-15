@@ -17,12 +17,13 @@ export const Header = styled.header<{ mobile: boolean }>`
   padding: 1.25rem;
 
   .wrapper {
-    ${flexItem}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     img {
       display: block;
       max-width: 40px;
-      margin: 0 auto;
     }
   }
 `;
@@ -47,12 +48,16 @@ export const containerOne = styled.div<{ mobile: boolean }>`
   ${flexItem};
   flex-direction: ${({ mobile }) => (mobile ? "column" : "row")};
   gap: ${({ mobile }) => (mobile ? "0.63rem" : "1.25rem")};
+  width: ${({ mobile }) => (mobile ? "100%" : "initial")};
 
   .active {
+    text-align: center;
     background-color: black;
     padding-block: 0.5rem;
     padding-inline: 0.75rem;
     border-radius: 0.38rem;
+    display: block;
+    width: ${({ mobile }) => (mobile ? "95%" : "initial")};
   }
 
   .wrapper-link {
@@ -91,7 +96,7 @@ export const containerTwo = styled.div`
     position: relative;
 
     .quanty-msn {
-      font-size:  0.81rem;
+      font-size: 0.81rem;
       display: flex;
       align-items: center;
       justify-content: center;

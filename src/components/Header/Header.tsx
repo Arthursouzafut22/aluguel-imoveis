@@ -22,8 +22,8 @@ const Header = ({ children }: { children: ReactNode }) => {
         </div>
       )}
 
-      {!mobile && <Nav />}
-      {mobile && menuActive && <Nav />}
+      {!mobile && <Nav setMenuActive={setMenuActive} />}
+      {mobile && menuActive && <Nav setMenuActive={setMenuActive} />}
 
       {children}
     </S.Header>

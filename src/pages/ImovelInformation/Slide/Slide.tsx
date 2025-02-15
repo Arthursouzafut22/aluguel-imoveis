@@ -8,6 +8,7 @@ import { PropertProps } from "../../../services/Types";
 const Slide = ({ searchProperty }: { searchProperty?: PropertProps }) => {
   return (
     <Swiper
+      style={{ height: "374.737px" }}
       modules={[Autoplay, Pagination]}
       pagination={{ clickable: true }}
       spaceBetween={0}
@@ -41,9 +42,10 @@ const Slide = ({ searchProperty }: { searchProperty?: PropertProps }) => {
               alt={`Imagem ${index}`}
               style={{
                 width: "100%",
-                height: "auto",
+                height: "100%",
                 display: "block",
                 cursor: "pointer",
+                objectFit: "cover",
               }}
             />
           </SwiperSlide>

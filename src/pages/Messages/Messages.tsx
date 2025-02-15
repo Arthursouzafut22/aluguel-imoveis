@@ -1,22 +1,13 @@
-import { UseAuth } from "../../context/LoginContext/ContexLogin";
-import { useQueryProperty } from "../../services/PropertyService/propertyService";
 import { ButtonColor } from "../../Styles/Colors";
 import * as S from "./Styles";
-import { MenssagesProps } from "./types";
 import deleteMessages from "../../services/DeleteMessages/deleteMessages";
-import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { toggleReadStatus } from "../../services/updateMessages/updateMessages";
+import { useReadStatus } from "../../services/updateMessages/updateMessages";
+import { UseLayout } from "../../context/LayoutContext/ContextLayout";
 
 const Messages = () => {
-  const { user } = UseAuth();
-  const uid = user?.uid as string;
-  const { data } = useQueryProperty<MenssagesProps[]>(`/messages/${uid}`);
-  const [dados, setDados] = useState(data);
-
-  useEffect(() => {
-    setDados(data);
-  }, [data]);
+  const { dados, setDados } = UseLayout();
+  const { toggleReadStatus } = useReadStatus();
 
   return (
     <S.Section>
